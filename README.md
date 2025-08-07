@@ -1,8 +1,7 @@
 # CodeSnippet
 
 CodeSnippet is a simple tool that lets you create and download beautiful images of your code.
-https://hi-code-snippet.vercel.app/
-
+https://codesnippet.hiarun.me/
 <div align="center">
  
 ![Screenshot 2025-06-22 225902](https://github.com/user-attachments/assets/2fad4421-1db2-440d-a7eb-d5b4164dc424)
