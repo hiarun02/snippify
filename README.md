@@ -8,24 +8,21 @@ A modern code snippet generator that transforms your code into beautiful, sharea
 
 ## ✨ Features
 
-- 🎨 **22+ Professional Themes** - Choose from ColdarkDark, OneDark, Nord, Synthwave84, and more
-- 🌈 **Beautiful Gradients** - 22+ pre-designed gradient backgrounds
-- 📝 **Multiple Languages** - JavaScript, Python, HTML, CSS, Java, Rust, Go, C++, and TypeScript
-- ⚙️ **Customization** - Adjust font size, padding, and more
-- 📸 **Export as PNG** - Download your code snippets as high-quality images
-- 🎯 **Line Numbers** - Show/hide line numbers with a toggle
-- 💾 **Background Control** - Toggle background on/off for transparent exports
-- 📱 **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
-- ⚡ **Real-time Preview** - See changes instantly as you customize
+- 22+ Professional Themes
+- 22+ Beautiful Gradients
+- Multiple Languages Support (JavaScript, Python, HTML, CSS, Java, Rust, Go, C++, TypeScript)
+- Customizable Font Size & Padding
+- Export as PNG
+- Toggle Background On/Off
+- Real-time Preview
 
 ## 🚀 Tech Stack
 
-- **Frontend**: React 19 + Next.js 14
-- **Styling**: Tailwind CSS 4
-- **Syntax Highlighting**: React Syntax Highlighter
-- **UI Components**: Radix UI
-- **Icons**: Lucide React
-- **Deployment**: Vercel
+- **React 19** + **Next.js 14** - Frontend framework
+- **Tailwind CSS 4** - Styling
+- **React Syntax Highlighter** - Code highlighting
+- **Radix UI** - Components
+- **Lucide React** - Icons
 
 ## 🛠️ Installation
 
@@ -131,7 +128,11 @@ Contributions are welcome! Here's how you can help:
 
 ## 📝 License
 
-This project is open source and available under the MIT License - see the LICENSE file for details.
+This project is open source and available under the Apache License 2.0 - see the LICENSE file for details.
+
+## 👥 Contributors
+
+Thanks to all our amazing contributors! Check out the [Contributors page](https://github.com/hiarun02/Snippify/graphs/contributors) for more details.
 
 ## 👨‍💻 Creator
 
