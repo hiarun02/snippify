@@ -2,29 +2,28 @@
 
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
 import {coldarkDark} from "react-syntax-highlighter/dist/esm/styles/prism";
-import {useGradient} from "@/hooks/useGradient";
-import {useTheme} from "@/hooks/useTheme";
-import {useLanguage} from "@/hooks/useLanguage";
-import {useFontSize} from "@/hooks/useFontSize";
-import {useBackground} from "@/hooks/useBackground";
-import {useCodePreview} from "@/hooks/useCodePreview";
+import {useEditorStore} from "@/store/useEditorStore";
+import type {ThemeStyle} from "@/lib/theme";
 
 interface CodePreviewProps {
   code: string;
 }
 
 export default function CodePreview({code}: CodePreviewProps) {
-  const {gradient} = useGradient();
-  const {theme} = useTheme();
-  const {language} = useLanguage();
-  const {fontSize} = useFontSize();
-  const {isBackgroundHidden} = useBackground();
-  const {setPreviewRef} = useCodePreview();
+  const gradient = useEditorStore((state) => state.gradient);
+  const theme = useEditorStore((state) => state.theme);
+  const language = useEditorStore((state) => state.language);
+  const fontSize = useEditorStore((state) => state.fontSize);
+  const isBackgroundHidden = useEditorStore(
+    (state) => state.isBackgroundHidden,
+  );
+  const showLineNumbers = useEditorStore((state) => state.showLineNumbers);
+  const setPreviewRef = useEditorStore((state) => state.setPreviewRef);
 
   return (
     <div
       ref={setPreviewRef}
-      className={`w-fit min-w-[20vw] max-sm:w-full py-8 px-10 max-sm:px-2 max-sm:p-2 rounded-xl ${
+      className={`w-fit min-w-[20vw] max-sm:w-full py-8 px-10 max-sm:py-6 max-sm:px-4 rounded-xl ${
         isBackgroundHidden ? "!bg-none shadow-none" : ""
       }`}
       style={{background: gradient}}
@@ -38,7 +37,7 @@ export default function CodePreview({code}: CodePreviewProps) {
 
         <SyntaxHighlighter
           language={language}
-          style={typeof theme === "string" ? coldarkDark : theme}
+          style={(theme as ThemeStyle) || coldarkDark}
           customStyle={{
             fontSize: `${fontSize}px`,
             borderRadius: "8px",
@@ -49,15 +48,10 @@ export default function CodePreview({code}: CodePreviewProps) {
             opacity: 0.85,
           }}
           wrapLongLines
-          showLineNumbers
+          showLineNumbers={showLineNumbers}
         >
           {code ||
-            `export default function useDebounce(fn, delay=300) {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => fn(...args), delay);
-  }}`}
+            `// Your code preview will appear here...\nfunction helloWorld() {\n  console.log("Hello, world!");\n}`}
         </SyntaxHighlighter>
       </div>
     </div>

@@ -8,7 +8,7 @@ import SupportDialog from "./landing/SupportDialog";
 
 export default function Footer() {
   return (
-    <header className="fixed bottom-0 w-full p-4 backdrop-blur-md bg-transparent z-50">
+    <footer className="fixed bottom-0 w-full p-4 backdrop-blur-md bg-transparent z-50">
       <nav className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-2 sm:gap-0">
         <div className="flex items-center space-x-2">
           <p className="text-black text-xs sm:text-sm">
@@ -44,6 +44,6 @@ export default function Footer() {
           </Button>
         </div>
       </nav>
-    </header>
+    </footer>
   );
 }

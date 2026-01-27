@@ -1,6 +1,6 @@
 "use client";
 
-import {useGradient} from "@/hooks/useGradient";
+import {useState} from "react";
 import {
   Select,
   SelectValue,
@@ -10,29 +10,56 @@ import {
 } from "./ui/select";
 import {gradientArray} from "@/constants/gradient";
 import {themes} from "@/lib/theme";
-import {useTheme} from "@/hooks/useTheme";
-import {useLanguage} from "@/hooks/useLanguage";
 import {Input} from "./ui/input";
-import {useFontSize} from "@/hooks/useFontSize";
 import {Label} from "./ui/label";
-import {useBackground} from "@/hooks/useBackground";
-
-import {useCodePreview} from "@/hooks/useCodePreview";
 import exportAsImage from "@/utils/DownloadImage";
 import {Button} from "./ui/button";
+import {useEditorStore} from "@/store/useEditorStore";
 
 export default function EditorHeader() {
-  const {gradient, setGradient} = useGradient();
-  const {setTheme} = useTheme();
-  const {setLanguage} = useLanguage();
-  const {fontSize, setFontSize} = useFontSize();
-  const {isBackgroundHidden, setIsBackgroundHidden} = useBackground();
-  const {getPreviewRef} = useCodePreview();
+  const gradient = useEditorStore((state) => state.gradient);
+  const setGradient = useEditorStore((state) => state.setGradient);
+  const setTheme = useEditorStore((state) => state.setTheme);
+  const setLanguage = useEditorStore((state) => state.setLanguage);
+  const fontSize = useEditorStore((state) => state.fontSize);
+  const setFontSize = useEditorStore((state) => state.setFontSize);
+  const isBackgroundHidden = useEditorStore(
+    (state) => state.isBackgroundHidden,
+  );
+  const setIsBackgroundHidden = useEditorStore(
+    (state) => state.setIsBackgroundHidden,
+  );
+  const showLineNumbers = useEditorStore((state) => state.showLineNumbers);
+  const setShowLineNumbers = useEditorStore(
+    (state) => state.setShowLineNumbers,
+  );
+  const previewRef = useEditorStore((state) => state.previewRef);
+  const isExporting = useEditorStore((state) => state.isExporting);
+  const setIsExporting = useEditorStore((state) => state.setIsExporting);
 
-  const handleExportImage = () => {
-    const node = getPreviewRef();
-    if (node) {
-      exportAsImage(node);
+  const [exportStatus, setExportStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
+  const handleExportImage = async () => {
+    if (previewRef) {
+      await exportAsImage(
+        previewRef,
+        () => {
+          setIsExporting(true);
+          setExportStatus("idle");
+        },
+        () => {
+          setIsExporting(false);
+          setExportStatus("success");
+          setTimeout(() => setExportStatus("idle"), 2000);
+        },
+        () => {
+          setIsExporting(false);
+          setExportStatus("error");
+          setTimeout(() => setExportStatus("idle"), 3000);
+        },
+      );
     }
   };
 
@@ -86,6 +113,25 @@ export default function EditorHeader() {
                 value={isBackgroundHidden ? "no" : "yes"}
                 onValueChange={(value: string) => {
                   setIsBackgroundHidden(value === "no");
+                }}
+              >
+                <SelectTrigger className="w-16 h-6 text-xs border-black">
+                  <SelectValue placeholder="Yes" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="yes">Yes</SelectItem>
+                  <SelectItem value="no">No</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-1 flex flex-col">
+              <Label className="text-xs w-full" htmlFor="lineNumbers">
+                Line Numbers
+              </Label>
+              <Select
+                value={showLineNumbers ? "yes" : "no"}
+                onValueChange={(value: string) => {
+                  setShowLineNumbers(value === "yes");
                 }}
               >
                 <SelectTrigger className="w-16 h-6 text-xs border-black">
@@ -163,10 +209,22 @@ export default function EditorHeader() {
               <Label className="text-xs">Export image</Label>
               <Button
                 onClick={handleExportImage}
+                disabled={isExporting}
                 variant="outline"
-                className="px-3 py-1 text-xs h-6 bg-transparent border-black"
+                className="px-3 py-1 text-xs h-6 bg-transparent border-black disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Download
+                {isExporting ? (
+                  <>
+                    <span className="inline-block mr-1 h-3 w-3 animate-spin rounded-full border-2 border-solid border-current border-r-transparent" />
+                    Exporting...
+                  </>
+                ) : exportStatus === "success" ? (
+                  "✓ Downloaded!"
+                ) : exportStatus === "error" ? (
+                  "✗ Failed"
+                ) : (
+                  "Download"
+                )}
               </Button>
             </div>
           </div>
