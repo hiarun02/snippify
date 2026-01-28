@@ -6,11 +6,13 @@ import Footer from "@/components/Footer";
 
 export default function EditorPage() {
   return (
-    <div className="h-screen overflow-hidden bg-gradient-to-b from-white via-white to-gray-50">
-      <main className="flex flex-col items-center h-full overflow-hidden">
-        <EditorHeader />
-        <CodeInput />
-        <Footer />
+    <div className="h-screen overflow-hidden bg-gradient-to-b from-white via-white to-gray-50 flex flex-col">
+      <EditorHeader />
+      <main className="flex-1 overflow-y-auto overflow-x-hidden">
+        <div className="flex flex-col items-center">
+          <CodeInput />
+          <Footer />
+        </div>
       </main>
     </div>
   );
