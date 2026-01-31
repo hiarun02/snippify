@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {FaArrowRight} from "react-icons/fa";
+import {FaArrowRight, FaStar} from "react-icons/fa";
 
 import {Button} from "@/components/ui/button";
 import FeturesSection from "./FeturesSection";
@@ -21,9 +21,28 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
-          <Button size="lg" className="px-6" asChild>
+          <Button
+            size="lg"
+            className="w-full max-w-xs justify-center px-6 sm:w-auto sm:max-w-none"
+            asChild
+          >
             <Link href="/editor">
               Try now its free <FaArrowRight />{" "}
+            </Link>
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="w-full max-w-xs justify-center sm:hidden"
+            asChild
+          >
+            <Link
+              href="https://github.com/hiarun02/Snippify"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2"
+            >
+              Star on GitHub <FaStar className="text-yellow-500" />
             </Link>
           </Button>
         </div>

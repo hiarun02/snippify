@@ -92,7 +92,7 @@ export default function Navbar() {
             </Button>
             <Button
               variant="outline"
-              className="border-white/30 bg-white/5 hover:bg-white/10 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+              className="hidden sm:inline-flex border-white/30 bg-white/5 hover:bg-white/10 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
               asChild
             >
               <Link

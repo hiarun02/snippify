@@ -62,7 +62,7 @@ export default function Footer() {
               </span>
             </Button>
           </SupportDialog> */}
-          <Button variant="link" className="p-0 h-auto">
+          <Button variant="link" className="p-0 h-auto" asChild>
             <Link
               href={"https://github.com/hiarun02/Snippify"}
               target="_blank"
