@@ -66,8 +66,8 @@ export default function EditorHeader() {
   return (
     <section className="fixed top-0 flex justify-center z-10 w-full">
       <div className="flex justify-center w-full max-w-6xl mx-auto">
-        <div className="flex flex-col items-center w-full px-3 sm:px-10 py-3 sm:py-4 min-h-auto sm:min-h-20 rounded-b-2xl bg-white/20 text-black backdrop-blur-2xl border border-black/10 dark:bg-white/5 dark:text-gray-100 dark:border-white/10">
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-10 w-full">
+        <div className="flex flex-col items-center w-full px-2 sm:px-10 py-2 sm:py-4 min-h-auto sm:min-h-20 rounded-b-2xl bg-white/20 text-black backdrop-blur-2xl border border-black/10 dark:bg-white/5 dark:text-gray-100 dark:border-white/10">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-10 w-full">
             <div className="space-y-1">
               <Label
                 className="text-xs text-gray-800 dark:text-gray-200/90"
