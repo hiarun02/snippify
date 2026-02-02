@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Snipture - Generate Beautiful Code Snippet Images Online Free",
+  title: "Snippify - Generate Beautiful Code Snippet Images Online Free",
   description:
     "Create stunning, shareable code snippet images with 22+ professional themes and gradients. Perfect for screenshots, blogs, and social media. No watermarks.",
   keywords:
@@ -22,30 +22,30 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.svg",
   },
-  metadataBase: new URL("https://snipture.hiarun.me"),
+  metadataBase: new URL("https://www.snippify.live"),
   alternates: {
-    canonical: "https://snipture.hiarun.me",
+    canonical: "https://www.snippify.live",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://snipture.hiarun.me",
-    title: "Snipture - Generate Beautiful Code Snippet Images",
+    url: "https://www.snippify.live",
+    title: "Snippify - Generate Beautiful Code Snippet Images",
     description:
       "Transform your code into beautiful, shareable images with 22+ themes and gradients. Free, fast, and no sign-up required.",
-    siteName: "Snipture",
+    siteName: "Snippify",
     images: [
       {
         url: "/preview.png",
         width: 1200,
         height: 630,
-        alt: "Snipture - Code Snippet Image Generator",
+        alt: "Snippify - Code Snippet Image Generator",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Snipture - Code Snippet Image Generator",
+    title: "Snippify - Code Snippet Image Generator",
     description:
       "Create stunning code snippet images with professional themes.",
     creator: "@hiarun02",

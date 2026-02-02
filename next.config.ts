@@ -12,6 +12,20 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: false,
     formats: ["image/webp", "image/avif"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "x.com",
+      },
+      {
+        protocol: "https",
+        hostname: "pbs.twimg.com",
+      },
+    ],
   },
 
   // Headers for SEO & Performance

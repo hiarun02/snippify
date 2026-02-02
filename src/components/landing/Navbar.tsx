@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {FaArrowAltCircleRight, FaStar} from "react-icons/fa";
+import {FaArrowAltCircleRight} from "react-icons/fa";
 import {FiMoon, FiSun} from "react-icons/fi";
 import {useEffect, useState} from "react";
 import {useTheme} from "next-themes";
@@ -10,41 +10,8 @@ import {useTheme} from "next-themes";
 import {Button} from "@/components/ui/button";
 
 export default function Navbar() {
-  const [stars, setStars] = useState<number | null>(null);
-  const [displayStars, setDisplayStars] = useState(0);
   const [mounted, setMounted] = useState(false);
   const {theme, systemTheme, setTheme} = useTheme();
-
-  useEffect(() => {
-    const fetchStars = async () => {
-      try {
-        const res = await fetch(
-          "https://api.github.com/repos/hiarun02/Snipture",
-        );
-        const data = await res.json();
-        if (typeof data?.stargazers_count === "number") {
-          setStars(data.stargazers_count);
-        }
-      } catch (error) {
-        console.error("Failed to fetch stars", error);
-      }
-    };
-
-    fetchStars();
-  }, []);
-
-  useEffect(() => {
-    if (stars === null) return;
-    let current = 0;
-    const target = stars;
-    const step = Math.max(1, Math.floor(target / 40));
-    const interval = setInterval(() => {
-      current = Math.min(current + step, target);
-      setDisplayStars(current);
-      if (current >= target) clearInterval(interval);
-    }, 25);
-    return () => clearInterval(interval);
-  }, [stars]);
 
   useEffect(() => {
     setMounted(true);
@@ -59,7 +26,7 @@ export default function Navbar() {
               <Image
                 className="rounded-full"
                 src="/icon.svg"
-                alt="Snipture logo"
+                alt="Snippify logo"
                 width={24}
                 height={24}
                 priority
@@ -67,7 +34,7 @@ export default function Navbar() {
             </span>
             <div className="leading-tight">
               <p className="text-sm font-semibold text-gray-900 dark:text-white">
-                Snipture
+                Snippify
               </p>
             </div>
           </div>
@@ -75,7 +42,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Button
               variant="outline"
-              className="h-10 w-10 rounded-full border-white/30 bg-white/5 p-0 hover:bg-white/10 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+              className="h-10 w-10 rounded-full border-gray-300 bg-white p-0 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
               aria-label="Toggle theme"
               onClick={() => {
                 const currentTheme = theme === "system" ? systemTheme : theme;
@@ -90,38 +57,7 @@ export default function Navbar() {
                 <FiMoon className="text-gray-700" />
               )}
             </Button>
-            <Button
-              variant="outline"
-              className="hidden sm:inline-flex border-white/30 bg-white/5 hover:bg-white/10 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-              asChild
-            >
-              <Link
-                href="https://github.com/hiarun02/Snipture"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2"
-              >
-                <span className="font-medium text-gray-900 dark:text-white">
-                  Star on GitHub
-                </span>
-                <FaStar className="text-yellow-500" />
-                {stars === null ? (
-                  <span
-                    className="inline-block ml-1 h-3 w-3 rounded-full border-2 border-gray-400 border-t-transparent animate-spin dark:border-gray-400"
-                    aria-hidden="true"
-                  />
-                ) : (
-                  <span className="text-sm text-gray-600 dark:text-gray-300">
-                    {displayStars.toLocaleString()}
-                  </span>
-                )}
-              </Link>
-            </Button>
-            <Button
-              variant="default"
-              className="hidden sm:inline-flex rounded-3xl"
-              asChild
-            >
+            <Button variant="default" className="rounded-3xl" asChild>
               <Link href="/editor">
                 Editor <FaArrowAltCircleRight />{" "}
               </Link>

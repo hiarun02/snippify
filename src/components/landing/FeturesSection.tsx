@@ -49,7 +49,7 @@ const FeturesSection = () => {
   ];
 
   return (
-    <div className="w-full max-w-6xl mt-10 space-y-8">
+    <div className="w-full max-w-6xl mt-10 space-y-8 mx-auto px-5">
       <div className="mb-8 text-center">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
           Everything you need to create stunning code visuals
@@ -60,11 +60,11 @@ const FeturesSection = () => {
         </p>
       </div>
 
-      <div className="grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
         {highlights.map((item) => (
           <div
             key={item.title}
-            className="group relative flex flex-col items-start gap-3 rounded-2xl border bg-white/70 p-6 text-left shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-white/10 dark:bg-gray-900/60"
+            className="group relative flex flex-col items-center gap-3 rounded-2xl border bg-white/70 p-6 text-center shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:shadow-md dark:border-white/10 dark:bg-gray-900/60"
           >
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-white to-gray-50 text-2xl shadow-md backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
               {item.icon}

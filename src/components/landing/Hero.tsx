@@ -2,11 +2,45 @@
 
 import Link from "next/link";
 import {FaArrowRight, FaStar} from "react-icons/fa";
+import {useEffect, useState} from "react";
 
 import {Button} from "@/components/ui/button";
-import FeturesSection from "./FeturesSection";
 
 export default function Hero() {
+  const [stars, setStars] = useState<number | null>(null);
+  const [displayStars, setDisplayStars] = useState(0);
+
+  useEffect(() => {
+    const fetchStars = async () => {
+      try {
+        const res = await fetch(
+          "https://api.github.com/repos/hiarun02/snippify",
+        );
+        const data = await res.json();
+        if (typeof data?.stargazers_count === "number") {
+          setStars(data.stargazers_count);
+        }
+      } catch (error) {
+        console.error("Failed to fetch stars", error);
+      }
+    };
+
+    fetchStars();
+  }, []);
+
+  useEffect(() => {
+    if (stars === null) return;
+    let current = 0;
+    const target = stars;
+    const step = Math.max(1, Math.floor(target / 40));
+    const interval = setInterval(() => {
+      current = Math.min(current + step, target);
+      setDisplayStars(current);
+      if (current >= target) clearInterval(interval);
+    }, 25);
+    return () => clearInterval(interval);
+  }, [stars]);
+
   return (
     <section id="hero" className="bg-white pb-16 pt-20 dark:bg-gray-950">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 text-center">
@@ -20,10 +54,10 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+        <div className="flex w-full flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
           <Button
             size="lg"
-            className="w-full max-w-xs justify-center px-6 sm:w-auto sm:max-w-none"
+            className="w-full justify-center px-6 sm:w-auto"
             asChild
           >
             <Link href="/editor">
@@ -33,20 +67,29 @@ export default function Hero() {
           <Button
             size="lg"
             variant="outline"
-            className="w-full max-w-xs justify-center sm:hidden"
+            className="w-full justify-center sm:w-auto"
             asChild
           >
             <Link
-              href="https://github.com/hiarun02/Snipture"
+              href="https://github.com/hiarun02/snippify"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2"
             >
               Star on GitHub <FaStar className="text-yellow-500" />
+              {stars === null ? (
+                <span
+                  className="inline-block ml-1 h-3 w-3 rounded-full border-2 border-gray-400 border-t-transparent animate-spin dark:border-gray-400"
+                  aria-hidden="true"
+                />
+              ) : (
+                <span className="text-sm text-gray-600 dark:text-gray-300">
+                  {displayStars.toLocaleString()}
+                </span>
+              )}
             </Link>
           </Button>
         </div>
-        <FeturesSection />
       </div>
     </section>
   );

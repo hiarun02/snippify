@@ -6,7 +6,7 @@ export default function LandingFooter() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-2 py-5">
         <div className="text-sm text-gray-700 dark:text-gray-300">
           <span className="font-semibold text-gray-900 dark:text-gray-100">
-            Snipture
+            Snippify
           </span>{" "}
           © 2026
         </div>
