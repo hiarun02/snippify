@@ -1,10 +1,37 @@
-# Snipture 🎨
+# Snipture 🎨 - Free Code Snippet Image Generator
 
-A modern code snippet generator that transforms your code into beautiful, shareable images with customizable themes, gradients, and styling options.
+Transform your code into stunning, shareable images with beautiful themes and gradients.
+
+**Snipture** is a modern, free code snippet generator that helps developers create beautiful screenshot images of their code. Perfect for blogs, documentation, social media, and presentations. No watermarks, no sign-up required.
 
 ![Snipture Demo](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
 ![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=flat-square&logo=tailwind-css)
+
+### Live Demo
+
+🚀 **[Visit Snipture](https://snipture.dev)** - Start creating beautiful code snippets now!
+
+## ✨ Key Features
+
+- **22+ Professional Themes** - VS Code, GitHub Dark, Nord, Dracula, and more
+- **22+ Beautiful Gradients** - Sunset, Ocean, Purple Haze, and custom combinations
+- **Multiple Language Support** - JavaScript, Python, HTML, CSS, Java, Rust, Go, C++, TypeScript, and more
+- **Customizable Export** - Adjust font size, padding, and background
+- **PNG Download** - Export snippets in high-quality PNG format
+- **Real-time Preview** - See changes instantly as you customize
+- **No Watermarks** - Completely free with no branding or limitations
+- **No Sign-up Required** - Start using immediately
+- **Dark & Light Modes** - Automatic theme detection
+
+## Why Use Snipture?
+
+- ✅ **Free & No Limits** - Create unlimited code snippet images
+- ✅ **Beautiful Output** - Professional-looking code screenshots
+- ✅ **Easy Sharing** - Perfect for blogs, tweets, and documentation
+- ✅ **SEO Friendly** - Improve documentation with visual code samples
+- ✅ **Fast & Responsive** - Optimized for all devices
+- ✅ **Open Source** - Community-driven development
 
 ## ✨ Features
 

@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Snipture",
+  "description": "Create stunning, shareable code snippet images with professional themes and gradients",
+  "url": "https://snipture.hiarun.me",
+  "applicationCategory": "Productivity",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Arun Kumar",
+    "url": "https://x.com/hiarun02"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "100"
+  },
+  "potentialAction": {
+    "@type": "UseAction",
+    "target": "https://snipture.hiarun.me/editor"
+  }
+}
