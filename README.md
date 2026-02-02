@@ -1,16 +1,16 @@
-# Snipture 🎨 - Free Code Snippet Image Generator
+# Snippify 🎨 - Free Code Snippet Image Generator
 
 Transform your code into stunning, shareable images with beautiful themes and gradients.
 
-**Snipture** is a modern, free code snippet generator that helps developers create beautiful screenshot images of their code. Perfect for blogs, documentation, social media, and presentations. No watermarks, no sign-up required.
+**Snippify** is a modern, free code snippet generator that helps developers create beautiful screenshot images of their code. Perfect for blogs, documentation, social media, and presentations. No watermarks, no sign-up required.
 
-![Snipture Demo](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
+![Snippify Demo](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
 ![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=flat-square&logo=tailwind-css)
 
 ### Live Demo
 
-🚀 **[Visit Snipture](https://snipture.dev)** - Start creating beautiful code snippets now!
+🚀 **[Visit Snippify](https://snippify.dev)** - Start creating beautiful code snippets now!
 
 ## ✨ Key Features
 
@@ -24,7 +24,7 @@ Transform your code into stunning, shareable images with beautiful themes and gr
 - **No Sign-up Required** - Start using immediately
 - **Dark & Light Modes** - Automatic theme detection
 
-## Why Use Snipture?
+## Why Use Snippify?
 
 - ✅ **Free & No Limits** - Create unlimited code snippet images
 - ✅ **Beautiful Output** - Professional-looking code screenshots
@@ -36,6 +36,7 @@ Transform your code into stunning, shareable images with beautiful themes and gr
 ## ✨ Features
 
 ## Features
+
 - 22+ Professional Themes
 - 22+ Beautiful Gradients
 - Multiple Languages Support (JavaScript, Python, HTML, CSS, Java, Rust, Go, C++, TypeScript)
@@ -46,7 +47,7 @@ Transform your code into stunning, shareable images with beautiful themes and gr
 
 ## Tech Stack
 
-- ****Next.js 14** - Frontend framework
+- \***\*Next.js 14** - Frontend framework
 - **Tailwind CSS 4** - Styling
 - **React Syntax Highlighter** - Code highlighting
 - **Shadcn Ui** - Components
@@ -63,8 +64,8 @@ Transform your code into stunning, shareable images with beautiful themes and gr
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/hiarun02/Snipture.git
-cd Snipture
+git clone https://github.com/hiarun02/snippify.git
+cd snippify
 ```
 
 2. **Install dependencies**
@@ -159,7 +160,7 @@ This project is open source and available under the Apache License 2.0 - see the
 
 ## 👥 Contributors
 
-Thanks to all our amazing contributors! Check out the [Contributors page](https://github.com/hiarun02/Snipture/graphs/contributors) for more details.
+Thanks to all our amazing contributors! Check out the [Contributors page](https://github.com/hiarun02/snippify/graphs/contributors) for more details.
 
 ## 👨‍💻 Creator
 

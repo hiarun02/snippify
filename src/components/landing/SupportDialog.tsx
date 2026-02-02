@@ -36,7 +36,7 @@ export default function SupportDialog({children}: SupportDialogProps) {
   const qrSrc = useMemo(
     () =>
       `https://api.qrserver.com/v1/create-qr-code/?size=360x360&data=${encodeURIComponent(
-        `upi://pay?pa=${UPI_ID}&pn=Snipture`,
+        `upi://pay?pa=${UPI_ID}&pn=Snippify`,
       )}`,
     [],
   );
@@ -67,10 +67,10 @@ export default function SupportDialog({children}: SupportDialogProps) {
       <DialogContent className="max-w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] overflow-y-auto border-gray-200 bg-white p-4 text-gray-900 dark:border-white/10 dark:bg-gray-900 dark:text-gray-100 sm:max-w-3xl sm:p-6">
         <DialogHeader className="gap-1">
           <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-white">
-            Support Snipture
+            Support Snippify
           </DialogTitle>
           <DialogDescription className="text-gray-600 dark:text-gray-300">
-            Keep Snipture free for everyone. Choose any option below.
+            Keep Snippify free for everyone. Choose any option below.
           </DialogDescription>
         </DialogHeader>
 

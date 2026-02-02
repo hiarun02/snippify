@@ -25,7 +25,7 @@ export default function Footer() {
             href="/"
             className="font-semibold hover:text-gray-900 dark:hover:text-white"
           >
-            Snipture |
+            Snippify |
           </Link>{" "}
           <span>Made by</span>
           <Link
@@ -64,7 +64,7 @@ export default function Footer() {
           </SupportDialog> */}
           <Button variant="link" className="p-0 h-auto" asChild>
             <Link
-              href={"https://github.com/hiarun02/Snipture"}
+              href={"https://github.com/hiarun02/snippify"}
               target="_blank"
               className="flex items-center gap-1 text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
             >
