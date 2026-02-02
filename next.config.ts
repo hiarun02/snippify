@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
 
   // Performance & SEO Optimizations
   compress: true,
-  swcMinify: true,
 
   // Image optimization
   images: {
