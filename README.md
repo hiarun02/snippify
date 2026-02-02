@@ -35,6 +35,7 @@ Transform your code into stunning, shareable images with beautiful themes and gr
 
 ## ✨ Features
 
+## Features
 - 22+ Professional Themes
 - 22+ Beautiful Gradients
 - Multiple Languages Support (JavaScript, Python, HTML, CSS, Java, Rust, Go, C++, TypeScript)
@@ -43,15 +44,14 @@ Transform your code into stunning, shareable images with beautiful themes and gr
 - Toggle Background On/Off
 - Real-time Preview
 
-## 🚀 Tech Stack
+## Tech Stack
 
-- **React 19** + **Next.js 14** - Frontend framework
+- ****Next.js 14** - Frontend framework
 - **Tailwind CSS 4** - Styling
 - **React Syntax Highlighter** - Code highlighting
-- **Radix UI** - Components
-- **Lucide React** - Icons
+- **Shadcn Ui** - Components
 
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 
@@ -82,7 +82,7 @@ npm run dev
 4. **Open in browser**
    Navigate to `http://localhost:3000`
 
-## 📖 Usage
+## Usage
 
 1. **Select Options**
    - Choose gradient, theme, language, and font size from the header
@@ -102,7 +102,7 @@ npm run dev
    - Click "Download" to export as PNG
    - Share your beautifully formatted code!
 
-## 🎯 Supported Languages
+## Supported Languages
 
 - JavaScript
 - Python
@@ -164,16 +164,6 @@ Thanks to all our amazing contributors! Check out the [Contributors page](https:
 ## 👨‍💻 Creator
 
 **Arun Kumar** ([@hiarun02](https://x.com/hiarun02))
-
-- GitHub: [@hiarun02](https://github.com/hiarun02)
-- Twitter: [@hiarun02](https://x.com/hiarun02)
-
-## 🙏 Acknowledgments
-
-- [React Syntax Highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter) for amazing syntax highlighting
-- [Radix UI](https://www.radix-ui.com/) for accessible components
-- [Tailwind CSS](https://tailwindcss.com/) for utility-first CSS
-- [Lucide React](https://lucide.dev/) for beautiful icons
 
 ## 📞 Support
 
