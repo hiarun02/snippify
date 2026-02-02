@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Snipture",
     images: [
       {
-        url: "/og-image.png",
+        url: "/preview.png",
         width: 1200,
         height: 630,
         alt: "Snipture - Code Snippet Image Generator",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "Create stunning code snippet images with professional themes.",
     creator: "@hiarun02",
-    images: ["/og-image.png"],
+    images: ["/preview.png"],
   },
   robots: {
     index: true,
