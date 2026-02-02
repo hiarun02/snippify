@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://snipture.dev/sitemap.xml
+Sitemap: https://snipture.hiarun.me/sitemap.xml
 
 User-agent: Googlebot
 Allow: /

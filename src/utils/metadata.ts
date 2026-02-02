@@ -11,7 +11,7 @@ export function generateEditorMetadata(): Metadata {
       title: "Code Snippet Editor - Snipture",
       description:
         "Create beautiful code snippet images with professional themes",
-      url: "https://snipture.dev/editor",
+      url: "https://snipture.hiarun.me/editor",
     },
   };
 }
@@ -23,7 +23,7 @@ export function generateHomeMetadata(): Metadata {
       "Explore Snipture features and start creating beautiful code snippets",
     openGraph: {
       title: "Dashboard - Snipture",
-      url: "https://snipture.dev/home",
+      url: "https://snipture.hiarun.me/home",
     },
   };
 }

@@ -3,7 +3,7 @@
   "@type": "WebApplication",
   "name": "Snipture",
   "description": "Create stunning, shareable code snippet images with professional themes and gradients",
-  "url": "https://snipture.dev",
+  "url": "https://snipture.hiarun.me",
   "applicationCategory": "Productivity",
   "operatingSystem": "Web",
   "offers": {
@@ -23,6 +23,6 @@
   },
   "potentialAction": {
     "@type": "UseAction",
-    "target": "https://snipture.dev/editor"
+    "target": "https://snipture.hiarun.me/editor"
   }
 }
