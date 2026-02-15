@@ -23,7 +23,7 @@ export default function CodePreview({code}: CodePreviewProps) {
   return (
     <div
       ref={setPreviewRef}
-      className={`w-fit min-w-[20vw] max-sm:w-full max-sm:mx-auto py-6 px-10 max-sm:py-4 max-sm:px-4 rounded-xl ${
+      className={`w-fit min-w-[20vw] max-sm:w-[320px] max-sm:max-w-[92vw] max-sm:mx-auto py-6 px-4 sm:px-10 max-sm:py-4 rounded-xl ${
         isBackgroundHidden ? "!bg-none shadow-none" : ""
       }`}
       style={{background: gradient}}
@@ -39,12 +39,14 @@ export default function CodePreview({code}: CodePreviewProps) {
           language={language}
           style={(theme as ThemeStyle) || coldarkDark}
           customStyle={{
+            fontFamily: '"Inter", "Inter Fallback", sans-serif',
             fontSize: `${fontSize}px`,
             borderRadius: "8px",
-            padding: "45px 35px 30px 10px",
+            padding: "42px 28px 26px 12px",
             boxShadow:
               "0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4)",
-            overflow: "hidden",
+            overflowX: "hidden",
+            overflowY: "hidden",
             opacity: 0.85,
           }}
           wrapLongLines
