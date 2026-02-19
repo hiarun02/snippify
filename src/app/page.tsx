@@ -5,7 +5,7 @@ import LandingFooter from "@/components/landing/Footer";
 
 import FeturesSection from "@/components/landing/FeturesSection";
 import Feedback from "@/components/landing/Feedback";
-import SupportDialog from "@/components/landing/SupportDialog";
+// import SupportDialog from "@/components/landing/SupportDialog";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
         <Feedback />
         <LandingFooter />
       </main>
-      <SupportDialog />
+      {/* <SupportDialog /> */}
     </div>
   );
 }
