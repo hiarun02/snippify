@@ -8,8 +8,6 @@ import {tweets as tweetData, type TweetDTO} from "@/utils/tweets";
 
 export default function Feedback() {
   const [tweets] = useState<TweetDTO[]>(tweetData);
-  const [loading] = useState(false);
-  const [error] = useState<string | null>(null);
   const [startIndex, setStartIndex] = useState(0);
 
   const VISIBLE_COUNT = 9;
@@ -30,18 +28,7 @@ export default function Feedback() {
     });
   }, [tweets, startIndex]);
 
-  if (loading) {
-    return (
-      <div className="text-center py-16">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto" />
-        <div className="text-lg text-white/70 mt-4">
-          Loading testimonials...
-        </div>
-      </div>
-    );
-  }
-
-  if (error || tweets.length === 0) {
+  if (tweets.length === 0) {
     return <></>;
   }
 

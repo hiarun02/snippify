@@ -4,7 +4,6 @@ import {Analytics} from "@vercel/analytics/next";
 import {SpeedInsights} from "@vercel/speed-insights/next";
 
 import "@/styles/globals.css";
-import ThemeProvider from "@/components/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,43 +11,54 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Snippify - Generate Beautiful Code Snippet Images Online Free",
+  title:
+    "Snippify - Code Snippet & Screenshot Generator with Advanced Code Editor",
   description:
-    "Create stunning, shareable code snippet images with 22+ professional themes and gradients. Perfect for screenshots, blogs, and social media. No watermarks.",
-  keywords:
-    "code snippet, code image generator, screenshot generator, code beautifier, syntax highlighter, code sharing tool",
+    "Snippify v2: Free code snippet generator & screenshot tool with enhanced code editor. 22+ professional themes, 50+ languages support, beautiful gradients. Perfect for developers, bloggers, and documentation.",
+  keywords: [
+    "code snippet generator",
+    "screenshot tool",
+    "code beautifier",
+    "syntax highlighter",
+    "code image generator",
+    "developer tools",
+    "code editor",
+    "snippet sharing",
+    "code visualization",
+  ],
   authors: [{name: "Arun Kumar", url: "https://x.com/hiarun02"}],
   creator: "Arun Kumar",
   icons: {
     icon: "/icon.svg",
   },
-  metadataBase: new URL("https://www.snippify.live"),
+  metadataBase: new URL("https://snippify.dev"),
   alternates: {
-    canonical: "https://www.snippify.live",
+    canonical: "https://snippify.dev",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.snippify.live",
-    title: "Snippify - Generate Beautiful Code Snippet Images",
+    url: "https://snippify.dev",
+    title: "Snippify - Free Code Snippet & Screenshot Generator",
     description:
-      "Transform your code into beautiful, shareable images with 22+ themes and gradients. Free, fast, and no sign-up required.",
+      "Create beautiful code snippet images with 22+ themes, advanced editor, and professional screenshot tool. Free, no watermarks.",
     siteName: "Snippify",
     images: [
       {
         url: "/preview.png",
         width: 1200,
         height: 630,
-        alt: "Snippify - Code Snippet Image Generator",
+        alt: "Snippify - Code Snippet Generator & Screenshot Tool",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Snippify - Code Snippet Image Generator",
+    title: "Snippify - Code Snippet & Screenshot Generator",
     description:
-      "Create stunning code snippet images with professional themes.",
+      "Free tool to create beautiful code snippet images with 22+ themes and advanced features.",
     creator: "@hiarun02",
+    site: "@hiarun02",
     images: ["/preview.png"],
   },
   robots: {
@@ -62,12 +72,16 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "your-google-verification-code",
+  },
 };
 
 export const viewport = {
-  width: "device-width",
+  width: "device-width" as const,
   initialScale: 1,
   maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({
@@ -76,16 +90,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <body
         className={`${inter.className} min-h-screen overflow-x-hidden overflow-y-auto bg-background text-foreground`}
       >
-        <ThemeProvider>
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </ThemeProvider>
-        
+        {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
