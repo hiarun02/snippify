@@ -4,7 +4,8 @@ Two powerful tools to transform your code into stunning, shareable images with b
 
 **Snippify v2** is a modern, free code snippet generator featuring two powerful tools: an enhanced code editor and a professional screenshot generator. Perfect for blogs, documentation, social media, and presentations. No watermarks, no sign-up required.
 
-<img width="1230" height="748" alt="snippet (30)" src="https://github.com/user-attachments/assets/e62b8100-86c9-4882-9253-15444c22d5c5" />
+
+![snippet (1)](https://github.com/user-attachments/assets/9cc27870-7cc4-4b23-9562-b5c1bb474e14)
 
 
 ## Two Powerful Tools in v2
