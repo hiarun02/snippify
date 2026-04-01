@@ -10,7 +10,7 @@ Two powerful tools to transform your code into stunning, shareable images with b
 
 ### Live Demo
 
-🚀 **[Visit Snippify](https://snippify.dev)** - Start creating beautiful code snippets now!
+**[Visit Snippify](https://snippify.live)** - Start creating beautiful code snippets now!
 
 ## Two Powerful Tools in v2
 
@@ -98,7 +98,7 @@ npm run dev
 - C++
 - TypeScript
 
-## 🎨 Available Themes
+## Available Themes
 
 - ColdarkDark
 - OneDark
@@ -110,7 +110,7 @@ npm run dev
 - Twilight
 - And 14+ more!
 
-## 🌈 Gradient Options
+## Gradient Options
 
 22+ carefully curated gradients including:
 
@@ -120,7 +120,7 @@ npm run dev
 - Digital dreams
 - And more!
 
-## 📦 Build for Production
+## Build for Production
 
 ```bash
 npm run build
@@ -149,16 +149,9 @@ Thanks to all our amazing contributors! Check out the [Contributors page](https:
 
 **Arun Kumar** ([@hiarun02](https://x.com/hiarun02))
 
-## 📞 Support
-
 If you encounter any issues or have suggestions, please:
 
 - Open an issue on GitHub
 - Star the repository if you find it useful
 - Share your feedback on Twitter [@hiarun02](https://x.com/hiarun02)
 
----
-
-Made with 🖤 by [Arun Kumar](https://github.com/hiarun02)
-
-**Star ⭐ this repository if you find it helpful!**
