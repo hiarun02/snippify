@@ -3,7 +3,6 @@ import Hero from "@/components/landing/Hero";
 import Navbar from "@/components/landing/Navbar";
 import LandingFooter from "@/components/landing/Footer";
 
-import FeturesSection from "@/components/landing/FeturesSection";
 import Feedback from "@/components/landing/Feedback";
 // import SupportDialog from "@/components/landing/SupportDialog";
 
@@ -13,7 +12,6 @@ export default function Home() {
       <Navbar />
       <main className="flex min-h-screen flex-col justify-between pb-0">
         <Hero />
-        <FeturesSection />
         <Feedback />
         <LandingFooter />
       </main>

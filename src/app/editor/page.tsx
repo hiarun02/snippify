@@ -1,19 +1,8 @@
-"use client";
+import EditorPageClient from "@/components/EditorPageClient";
+import {generateEditorMetadata} from "@/utils/metadata";
 
-import CodeInput from "@/components/CodeInput";
-import EditorHeader from "@/components/EditorHeader";
-import Footer from "@/components/Footer";
+export const metadata = generateEditorMetadata();
 
 export default function EditorPage() {
-  return (
-    <div className="h-screen overflow-hidden bg-gradient-to-b from-white via-white to-gray-50 dark:from-[#111010] dark:via-[#111010] dark:to-[#111010] flex flex-col">
-      <EditorHeader />
-      <main className="flex-1 overflow-y-auto overflow-x-hidden">
-        <div className="flex flex-col items-center">
-          <CodeInput />
-          <Footer />
-        </div>
-      </main>
-    </div>
-  );
+  return <EditorPageClient />;
 }

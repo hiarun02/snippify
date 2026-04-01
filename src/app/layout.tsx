@@ -4,7 +4,6 @@ import {Analytics} from "@vercel/analytics/next";
 import {SpeedInsights} from "@vercel/speed-insights/next";
 
 import "@/styles/globals.css";
-import ThemeProvider from "@/components/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -76,16 +75,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <body
         className={`${inter.className} min-h-screen overflow-x-hidden overflow-y-auto bg-background text-foreground`}
       >
-        <ThemeProvider>
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </ThemeProvider>
-        
+        {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
