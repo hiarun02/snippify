@@ -63,6 +63,87 @@ function canvasToBlob(
   });
 }
 
+function getRoundedCornerRadius(node: HTMLElement) {
+  const elements = [
+    node,
+    ...Array.from(node.querySelectorAll<HTMLElement>("*")),
+  ];
+  const radiusValues = elements.flatMap((element) => {
+    const computedStyle = window.getComputedStyle(element);
+    return [
+      computedStyle.borderTopLeftRadius,
+      computedStyle.borderTopRightRadius,
+      computedStyle.borderBottomRightRadius,
+      computedStyle.borderBottomLeftRadius,
+    ]
+      .map((value) => Number.parseFloat(value))
+      .filter((value) => Number.isFinite(value));
+  });
+
+  return radiusValues.length ? Math.max(...radiusValues) : 0;
+}
+
+function drawRoundedRectPath(
+  context: CanvasRenderingContext2D,
+  width: number,
+  height: number,
+  radius: number,
+) {
+  const safeRadius = Math.max(0, Math.min(radius, width / 2, height / 2));
+
+  context.beginPath();
+  context.moveTo(safeRadius, 0);
+  context.lineTo(width - safeRadius, 0);
+  context.quadraticCurveTo(width, 0, width, safeRadius);
+  context.lineTo(width, height - safeRadius);
+  context.quadraticCurveTo(width, height, width - safeRadius, height);
+  context.lineTo(safeRadius, height);
+  context.quadraticCurveTo(0, height, 0, height - safeRadius);
+  context.lineTo(0, safeRadius);
+  context.quadraticCurveTo(0, 0, safeRadius, 0);
+  context.closePath();
+}
+
+function applyRoundedCornerMask(canvas: HTMLCanvasElement, node: HTMLElement) {
+  const radius = getRoundedCornerRadius(node);
+  if (radius <= 0) {
+    return canvas;
+  }
+
+  const rect = node.getBoundingClientRect();
+  const width = Math.max(1, Math.round(rect.width));
+  const height = Math.max(1, Math.round(rect.height));
+  const scaleX = canvas.width / width;
+  const scaleY = canvas.height / height;
+  const scale = Math.min(scaleX, scaleY);
+  const scaledRadius = Math.max(0, radius * scale);
+
+  if (!Number.isFinite(scaledRadius) || scaledRadius <= 0) {
+    return canvas;
+  }
+
+  const maskedCanvas = document.createElement("canvas");
+  maskedCanvas.width = canvas.width;
+  maskedCanvas.height = canvas.height;
+
+  const context = maskedCanvas.getContext("2d");
+  if (!context) {
+    return canvas;
+  }
+
+  context.clearRect(0, 0, maskedCanvas.width, maskedCanvas.height);
+  drawRoundedRectPath(
+    context,
+    maskedCanvas.width,
+    maskedCanvas.height,
+    scaledRadius,
+  );
+  context.clip();
+  context.drawImage(canvas, 0, 0);
+
+  return maskedCanvas;
+}
+
 function downloadBlob(blob: Blob, filename: string) {
   const url = URL.createObjectURL(blob);
   triggerBrowserDownload(url, filename);
@@ -103,6 +184,8 @@ function createSanitizedClone(node: HTMLElement, applyLayoutFallback = false) {
   const rect = node.getBoundingClientRect();
   const width = Math.max(1, Math.round(rect.width));
   const height = Math.max(1, Math.round(rect.height));
+  const computedStyle = window.getComputedStyle(node);
+  const borderRadius = computedStyle.borderRadius;
 
   const wrapper = document.createElement("div");
   wrapper.style.position = "fixed";
@@ -111,12 +194,20 @@ function createSanitizedClone(node: HTMLElement, applyLayoutFallback = false) {
   wrapper.style.width = `${width}px`;
   wrapper.style.height = `${height}px`;
   wrapper.style.pointerEvents = "none";
+  wrapper.style.overflow = "hidden";
 
   const clone = node.cloneNode(true) as HTMLElement;
   clone.style.width = `${width}px`;
   clone.style.height = `${height}px`;
   clone.style.margin = "0";
   clone.style.transform = "none";
+  clone.style.borderRadius = borderRadius;
+  clone.style.overflow = "hidden";
+  clone.style.backgroundClip = "padding-box";
+  clone.style.clipPath =
+    borderRadius && borderRadius !== "0px"
+      ? `inset(0 round ${borderRadius})`
+      : "none";
 
   clone.querySelectorAll("[data-export-ignore='true']").forEach((el) => {
     el.remove();
@@ -153,7 +244,7 @@ async function captureCanvas(node: HTMLElement) {
   const width = Math.max(1, Math.round(rect.width));
   const height = Math.max(1, Math.round(rect.height));
 
-  return await html2canvas(node, {
+  const canvas = await html2canvas(node, {
     backgroundColor: null,
     width,
     height,
@@ -165,6 +256,8 @@ async function captureCanvas(node: HTMLElement) {
     ignoreElements: (el) =>
       el instanceof HTMLElement && el.dataset.exportIgnore === "true",
   });
+
+  return applyRoundedCornerMask(canvas, node);
 }
 
 async function captureCanvasWithHtmlToImage(node: HTMLElement) {
@@ -173,7 +266,7 @@ async function captureCanvasWithHtmlToImage(node: HTMLElement) {
   const width = Math.max(1, Math.round(rect.width));
   const height = Math.max(1, Math.round(rect.height));
 
-  return await toCanvas(node, {
+  const canvas = await toCanvas(node, {
     cacheBust: true,
     width,
     height,
@@ -191,6 +284,8 @@ async function captureCanvasWithHtmlToImage(node: HTMLElement) {
       top: "0",
     },
   });
+
+  return applyRoundedCornerMask(canvas, node);
 }
 
 export default async function exportAsImage(
@@ -211,22 +306,27 @@ export default async function exportAsImage(
     const quality = getFormatQuality(format);
     const filename = options?.filename ?? `snippet.${format}`;
     const useLayoutFallback = shouldUseLayoutFallback(node);
+
+    const exportFromClone = async (applyLayoutFallback: boolean) => {
+      const {clone, dispose} = createSanitizedClone(node, applyLayoutFallback);
+      try {
+        const canvas = await captureCanvas(clone);
+        const blob = await canvasToBlob(
+          canvas,
+          mimeType,
+          format === "png" ? undefined : quality,
+        );
+        downloadBlob(blob, filename);
+        onSuccess?.();
+        return true;
+      } finally {
+        dispose();
+      }
+    };
+
     try {
-      if (useLayoutFallback) {
-        const {clone, dispose} = createSanitizedClone(node, true);
-        try {
-          const canvas = await captureCanvasWithHtmlToImage(clone);
-          const blob = await canvasToBlob(
-            canvas,
-            mimeType,
-            format === "png" ? undefined : quality,
-          );
-          downloadBlob(blob, filename);
-          onSuccess?.();
-          return;
-        } finally {
-          dispose();
-        }
+      if (await exportFromClone(useLayoutFallback)) {
+        return;
       }
 
       const canvas = await captureCanvasWithHtmlToImage(node);
@@ -240,35 +340,13 @@ export default async function exportAsImage(
       return;
     } catch {
       try {
-        const {clone, dispose} = createSanitizedClone(node, false);
-        try {
-          const canvas = await captureCanvasWithHtmlToImage(clone);
-          const blob = await canvasToBlob(
-            canvas,
-            mimeType,
-            format === "png" ? undefined : quality,
-          );
-          downloadBlob(blob, filename);
-          onSuccess?.();
+        if (await exportFromClone(false)) {
           return;
-        } finally {
-          dispose();
         }
       } catch {
         try {
-          const {clone, dispose} = createSanitizedClone(node, true);
-          try {
-            const canvas = await captureCanvasWithHtmlToImage(clone);
-            const blob = await canvasToBlob(
-              canvas,
-              mimeType,
-              format === "png" ? undefined : quality,
-            );
-            downloadBlob(blob, filename);
-            onSuccess?.();
+          if (await exportFromClone(true)) {
             return;
-          } finally {
-            dispose();
           }
         } catch {
           const canvas = await captureCanvas(node);

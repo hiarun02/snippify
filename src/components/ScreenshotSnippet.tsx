@@ -180,7 +180,7 @@ export default function ScreenshotSnippet({settings}: ScreenshotSnippetProps) {
 
       <div
         ref={setPreviewRef}
-        className="mx-auto box-border w-full max-w-[615px] rounded-lg"
+        className="mx-auto box-border w-full max-w-[615px] overflow-hidden rounded-lg"
         style={{background: gradient, padding: "32px"}}
       >
         <div
