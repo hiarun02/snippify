@@ -1,8 +1,8 @@
-# Snippify 🎨 - Free Code Snippet Image Generator
+# Snippify 🎨 - Free Code Snippet Tools Suite
 
-Transform your code into stunning, shareable images with beautiful themes and gradients.
+Two powerful tools to transform your code into stunning, shareable images with beautiful themes and gradients.
 
-**Snippify** is a modern, free code snippet generator that helps developers create beautiful screenshot images of their code. Perfect for blogs, documentation, social media, and presentations. No watermarks, no sign-up required.
+**Snippify v2** is a modern, free code snippet generator featuring two powerful tools: an enhanced code editor and a professional screenshot generator. Perfect for blogs, documentation, social media, and presentations. No watermarks, no sign-up required.
 
 ![Snippify Demo](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
 ![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)
@@ -12,38 +12,21 @@ Transform your code into stunning, shareable images with beautiful themes and gr
 
 🚀 **[Visit Snippify](https://snippify.dev)** - Start creating beautiful code snippets now!
 
-## ✨ Key Features
+## Two Powerful Tools in v2
 
-- **22+ Professional Themes** - VS Code, GitHub Dark, Nord, Dracula, and more
-- **22+ Beautiful Gradients** - Sunset, Ocean, Purple Haze, and custom combinations
-- **Multiple Language Support** - JavaScript, Python, HTML, CSS, Java, Rust, Go, C++, TypeScript, and more
-- **Customizable Export** - Adjust font size, padding, and background
-- **PNG Download** - Export snippets in high-quality PNG format
-- **Real-time Preview** - See changes instantly as you customize
-- **No Watermarks** - Completely free with no branding or limitations
-- **No Sign-up Required** - Start using immediately
-- **Dark & Light Modes** - Automatic theme detection
+### 1. Enhanced Code Editor
 
-## Why Use Snippify?
+- Improved syntax highlighting for 50+ languages
+- Better code formatting and auto-indent
+- Enhanced keyboard shortcuts and vim mode support
+- Real-time error detection and suggestions
 
-- ✅ **Free & No Limits** - Create unlimited code snippet images
-- ✅ **Beautiful Output** - Professional-looking code screenshots
-- ✅ **Easy Sharing** - Perfect for blogs, tweets, and documentation
-- ✅ **SEO Friendly** - Improve documentation with visual code samples
-- ✅ **Fast & Responsive** - Optimized for all devices
-- ✅ **Open Source** - Community-driven development
+### 2. Professional Screenshot Tool
 
-## ✨ Features
-
-## Features
-
-- 22+ Professional Themes
-- 22+ Beautiful Gradients
-- Multiple Languages Support (JavaScript, Python, HTML, CSS, Java, Rust, Go, C++, TypeScript)
-- Customizable Font Size & Padding
-- Export as PNG
-- Toggle Background On/Off
-- Real-time Preview
+- Advanced visual customization with 22+ themes
+- Dynamic gradient backgrounds with 22+ presets
+- Custom sizing, padding, and border options
+- One-click export to PNG with high quality
 
 ## Tech Stack
 
