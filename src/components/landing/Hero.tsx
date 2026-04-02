@@ -14,18 +14,14 @@ export default function Hero() {
 
   const toolSlides = [
     {
-      title: "Tool 1: Code Snippet",
-      description:
-        "Paste code, adjust font and background gradient, and export developer-friendly images.",
+      id: "tool-1",
       image: "/toolOne.png",
-      alt: "Code Snippet editor preview",
+      alt: "Tool 1 preview",
     },
     {
-      title: "Tool 2: Screenshot Snippet",
-      description:
-        "Upload product screenshots, tune padding/corner/shadow, and export clean presentation-ready frames.",
+      id: "tool-2",
       image: "/toolSecond.png",
-      alt: "Screenshot Snippet editor preview",
+      alt: "Tool 2 preview",
     },
   ];
 
@@ -72,7 +68,10 @@ export default function Hero() {
   }, [toolSlides.length]);
 
   return (
-    <section id="hero" className="bg-white pb-16 pt-20 dark:bg-[#111010]">
+    <section
+      id="hero"
+      className="bg-white pb-24 pt-20 dark:bg-[#111010] sm:pb-16"
+    >
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 text-center">
         <div className="space-y-4 sm:max-w-3xl">
           {/* badge */}
@@ -90,7 +89,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="flex w-full flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
+        <div className="flex w-full flex-col items-stretch gap-5 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
           <Button
             size="lg"
             className="w-full justify-center px-6 sm:w-auto"
@@ -127,20 +126,20 @@ export default function Hero() {
           </Button>
         </div>
 
-        <div className="w-full max-w-5xl rounded-2xl border border-black/10 bg-white/80 p-3 shadow-xl backdrop-blur dark:border-white/10 dark:bg-[#111010]/80 sm:p-4">
-          <div className="overflow-hidden rounded-xl border border-black/10 bg-black/5 dark:border-white/10 dark:bg-white/5">
+        <div className="hidden w-full rounded-2xl border border-black/20 bg-white/70 p-3 shadow-2xl shadow-black/20 backdrop-blur dark:border-white/20 dark:bg-[#111010]/75 dark:shadow-black/50 sm:block sm:p-4">
+          <div className="overflow-hidden rounded-xl bg-black/5 dark:bg-white/5">
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{transform: `translateX(-${activeSlide * 100}%)`}}
             >
               {toolSlides.map((slide) => (
-                <div key={slide.title} className="w-full shrink-0 p-2 sm:p-3">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-black/10 bg-white dark:border-white/10 dark:bg-[#171717]">
+                <div key={slide.id} className="w-full shrink-0 p-2 sm:p-3">
+                  <div className="relative aspect-[2/1] overflow-hidden rounded-lg bg-white dark:bg-[#171717]">
                     <Image
                       src={slide.image}
                       alt={slide.alt}
                       fill
-                      className="object-cover object-top"
+                      className="object-contain object-center"
                       sizes="(max-width: 768px) 100vw, 900px"
                       priority
                     />
@@ -150,20 +149,11 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="mt-3 rounded-lg border border-black/10 bg-white/70 px-4 py-3 text-left dark:border-white/10 dark:bg-white/5">
-            <p className="text-sm font-semibold text-gray-900 dark:text-white sm:text-base">
-              {toolSlides[activeSlide].title}
-            </p>
-            <p className="mt-1 text-xs text-gray-600 dark:text-gray-300 sm:text-sm">
-              {toolSlides[activeSlide].description}
-            </p>
-          </div>
-
-          <div className="mt-3 flex items-center justify-between gap-3 px-1">
+          <div className="mt-3 flex items-center justify-center gap-3 px-1">
             <div className="flex gap-2">
               {toolSlides.map((slide, index) => (
                 <button
-                  key={slide.title}
+                  key={slide.id}
                   type="button"
                   onClick={() => setActiveSlide(index)}
                   className={`h-2.5 rounded-full transition-all ${
@@ -171,24 +161,8 @@ export default function Hero() {
                       ? "w-8 bg-emerald-500"
                       : "w-2.5 bg-gray-300 dark:bg-gray-700"
                   }`}
-                  aria-label={`Show ${slide.title}`}
+                  aria-label={`Show tool ${index + 1}`}
                 />
-              ))}
-            </div>
-            <div className="flex gap-2">
-              {toolSlides.map((slide, index) => (
-                <button
-                  key={`tab-${slide.title}`}
-                  type="button"
-                  onClick={() => setActiveSlide(index)}
-                  className={`rounded-full px-3 py-1 text-xs font-medium transition-colors sm:text-sm ${
-                    activeSlide === index
-                      ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-300/20 dark:text-emerald-300"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-white/10 dark:text-gray-300 dark:hover:bg-white/15"
-                  }`}
-                >
-                  {index === 0 ? "Code Tool" : "Screenshot Tool"}
-                </button>
               ))}
             </div>
           </div>
