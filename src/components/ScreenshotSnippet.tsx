@@ -204,6 +204,7 @@ export default function ScreenshotSnippet({settings}: ScreenshotSnippetProps) {
                 className="relative inline-flex items-center justify-center overflow-hidden"
                 data-layout-effect="true"
                 data-layout-preset={settings.layoutPreset}
+                data-shadow-style={settings.shadowStyle}
                 style={{
                   borderRadius: `${borderRadius}px`,
                   maxWidth: `calc(100% - ${frameBorderWidthPx * 2}px)`,
