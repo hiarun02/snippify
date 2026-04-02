@@ -99,6 +99,20 @@ function applyExportLayoutFallback(root: HTMLElement) {
     });
 }
 
+function applyExportVisualFixes(root: HTMLElement) {
+  root
+    .querySelectorAll<HTMLElement>("[data-layout-effect='true']")
+    .forEach((el) => {
+      // Prevent export renderers from creating hard-corner artifacts near tilted edges.
+      el.style.overflow = "hidden";
+      el.style.backgroundClip = "padding-box";
+
+      if (el.dataset.shadowStyle === "none") {
+        el.style.boxShadow = "none";
+      }
+    });
+}
+
 function createSanitizedClone(node: HTMLElement, applyLayoutFallback = false) {
   const rect = node.getBoundingClientRect();
   const width = Math.max(1, Math.round(rect.width));
@@ -215,6 +229,7 @@ export default async function exportAsImage(
       if (useLayoutFallback) {
         const {clone, dispose} = createSanitizedClone(node, true);
         try {
+          applyExportVisualFixes(clone);
           const canvas = await captureCanvasWithHtmlToImage(clone);
           const blob = await canvasToBlob(
             canvas,
@@ -229,19 +244,26 @@ export default async function exportAsImage(
         }
       }
 
-      const canvas = await captureCanvasWithHtmlToImage(node);
-      const blob = await canvasToBlob(
-        canvas,
-        mimeType,
-        format === "png" ? undefined : quality,
-      );
-      downloadBlob(blob, filename);
-      onSuccess?.();
-      return;
+      const {clone, dispose} = createSanitizedClone(node, false);
+      try {
+        applyExportVisualFixes(clone);
+        const canvas = await captureCanvasWithHtmlToImage(clone);
+        const blob = await canvasToBlob(
+          canvas,
+          mimeType,
+          format === "png" ? undefined : quality,
+        );
+        downloadBlob(blob, filename);
+        onSuccess?.();
+        return;
+      } finally {
+        dispose();
+      }
     } catch {
       try {
         const {clone, dispose} = createSanitizedClone(node, false);
         try {
+          applyExportVisualFixes(clone);
           const canvas = await captureCanvasWithHtmlToImage(clone);
           const blob = await canvasToBlob(
             canvas,
@@ -258,6 +280,7 @@ export default async function exportAsImage(
         try {
           const {clone, dispose} = createSanitizedClone(node, true);
           try {
+            applyExportVisualFixes(clone);
             const canvas = await captureCanvasWithHtmlToImage(clone);
             const blob = await canvasToBlob(
               canvas,

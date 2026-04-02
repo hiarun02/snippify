@@ -983,6 +983,31 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
           "center / cover no-repeat url('/screenshot-bgs/macos-glacier.svg')",
       },
       {
+        name: "Arctic 2026",
+        gradient:
+          "center / cover no-repeat url('/screenshot-bgs/macos-2026-arctic.svg')",
+      },
+      {
+        name: "Flow 2026",
+        gradient:
+          "center / cover no-repeat url('/screenshot-bgs/macos-2026-flow.svg')",
+      },
+      {
+        name: "Glass 2026",
+        gradient:
+          "center / cover no-repeat url('/screenshot-bgs/macos-2026-glass.svg')",
+      },
+      {
+        name: "Halo 2026",
+        gradient:
+          "center / cover no-repeat url('/screenshot-bgs/macos-2026-halo.svg')",
+      },
+      {
+        name: "Solar 2026",
+        gradient:
+          "center / cover no-repeat url('/screenshot-bgs/macos-2026-solar.svg')",
+      },
+      {
         name: "Rose Glow",
         gradient:
           "center / cover no-repeat url('/screenshot-bgs/macos-rose.svg')",
@@ -1049,31 +1074,6 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
         name: item.name,
         gradient: item.gradient,
       })),
-      {
-        name: "Radiant Sun",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/radiant-sun.svg')",
-      },
-      {
-        name: "Radiant Rose",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/radiant-rose.svg')",
-      },
-      {
-        name: "Radiant Cyan",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/radiant-cyan.svg')",
-      },
-      {
-        name: "Radiant Indigo",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/radiant-indigo.svg')",
-      },
-      {
-        name: "Radiant Coral",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/radiant-coral.svg')",
-      },
     ],
   },
   {

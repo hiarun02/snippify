@@ -610,6 +610,68 @@ export const LAYOUT_PRESET_CATEGORIES: LayoutPresetCategory[] = [
       },
     ],
   },
+  {
+    id: "cinematic",
+    name: "Cinematic",
+    presets: [
+      {
+        id: "cinema-left",
+        name: "Cinema Left",
+        values: {
+          perspective: 1700,
+          rotateX: 12,
+          rotateY: -22,
+          rotateZ: 6,
+          translateX: -8,
+          translateY: -2,
+          scale: 0.92,
+        },
+        exportSafeTransform: "translate(-8%, -2%) rotate(6deg) scale(0.92)",
+      },
+      {
+        id: "cinema-right",
+        name: "Cinema Right",
+        values: {
+          perspective: 1700,
+          rotateX: 12,
+          rotateY: 22,
+          rotateZ: -6,
+          translateX: 8,
+          translateY: -2,
+          scale: 0.92,
+        },
+        exportSafeTransform: "translate(8%, -2%) rotate(-6deg) scale(0.92)",
+      },
+      {
+        id: "poster-rise",
+        name: "Poster Rise",
+        values: {
+          perspective: 2000,
+          rotateX: 20,
+          rotateY: -6,
+          rotateZ: 2,
+          translateX: 0,
+          translateY: -8,
+          scale: 0.93,
+        },
+        exportSafeTransform: "translate(0%, -8%) rotate(2deg) scale(0.93)",
+      },
+      {
+        id: "studio-sweep",
+        name: "Studio Sweep",
+        values: {
+          perspective: 1900,
+          rotateX: 9,
+          rotateY: 16,
+          rotateZ: -4,
+          translateX: 4,
+          translateY: -1,
+          scale: 0.95,
+        },
+        exportSafeTransform: "translate(4%, -1%) rotate(-4deg) scale(0.95)",
+      },
+    ],
+  },
 ];
 
 export const LAYOUT_PRESETS = LAYOUT_PRESET_CATEGORIES.flatMap(

@@ -159,7 +159,7 @@ export default function Hero() {
                   className={`h-2.5 rounded-full transition-all ${
                     activeSlide === index
                       ? "w-8 bg-emerald-500"
-                      : "w-2.5 bg-gray-300 dark:bg-gray-700"
+                      : "w-2.5 bg-black/80 dark:bg-white/90"
                   }`}
                   aria-label={`Show tool ${index + 1}`}
                 />
