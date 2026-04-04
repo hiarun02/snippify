@@ -29,10 +29,11 @@ export interface ScreenshotSettings {
     | "default"
     | "glass-light"
     | "glass-dark"
-    | "outline"
     | "border"
     | "border-dark";
 }
+
+type ScreenshotFrameStyle = ScreenshotSettings["frameStyle"];
 
 interface EditorStore {
   // Code
@@ -108,9 +109,9 @@ type PersistedEditorState = {
 const DEFAULT_CODE =
   'function greetUser(name) {\n  const cleanName = name.trim();\n  if (!cleanName) return "Hello, guest!";\n  return `Hello, ${cleanName}!`;\n}\n\ngreetUser("Arun");';
 const DEFAULT_GRADIENT =
-  "linear-gradient(120deg, rgba(246, 211, 101, 1) 0%, rgba(253, 160, 133, 1) 100%)";
+  "center / cover no-repeat url('/screenshot-bgs/macos-gold.svg')";
 const DEFAULT_SCREENSHOT_GRADIENT =
-  "center / cover no-repeat url('/screenshot-bgs/macos-rose.svg')";
+  "center / cover no-repeat url('/screenshot-bgs/mac-bg-4.jpg')";
 const STORAGE_KEY = "snippify-editor-state";
 const CODE_SAVE_DEBOUNCE_MS = 250;
 const MAX_PERSISTED_IMAGE_SIZE_BYTES = 4 * 1024 * 1024;
@@ -130,12 +131,31 @@ const isValidLayoutPreset = (
   return isLayoutPresetId(value);
 };
 
+const normalizeFrameStyle = (value: unknown): ScreenshotFrameStyle => {
+  if (value === "outline") {
+    return "border";
+  }
+
+  if (
+    value === "default" ||
+    value === "glass-light" ||
+    value === "glass-dark" ||
+    value === "border" ||
+    value === "border-dark"
+  ) {
+    return value;
+  }
+
+  return DEFAULT_SCREENSHOT_SETTINGS.frameStyle;
+};
+
 const normalizeScreenshotSettings = (
   settings?: Partial<ScreenshotSettings>,
 ): ScreenshotSettings => {
   return {
     ...DEFAULT_SCREENSHOT_SETTINGS,
     ...(settings ?? {}),
+    frameStyle: normalizeFrameStyle(settings?.frameStyle),
     layoutPreset: (() => {
       const rawLayout = settings?.layoutPreset;
       if (isValidLayoutPreset(rawLayout)) {

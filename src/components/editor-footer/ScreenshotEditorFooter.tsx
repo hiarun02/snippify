@@ -251,7 +251,6 @@ export default function ScreenshotEditorFooter({
                     | "default"
                     | "glass-light"
                     | "glass-dark"
-                    | "outline"
                     | "border"
                     | "border-dark",
                 ) => onSettingsChange({...settings, frameStyle: value})}
@@ -266,7 +265,6 @@ export default function ScreenshotEditorFooter({
                   <SelectItem value="default">Default</SelectItem>
                   <SelectItem value="glass-light">Glass Light</SelectItem>
                   <SelectItem value="glass-dark">Glass Dark</SelectItem>
-                  <SelectItem value="outline">Outline</SelectItem>
                   <SelectItem value="border">Border</SelectItem>
                   <SelectItem value="border-dark">Border Dark</SelectItem>
                 </SelectContent>

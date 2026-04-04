@@ -67,23 +67,17 @@ export default function ScreenshotSnippet({settings}: ScreenshotSnippetProps) {
           backgroundColor: "transparent",
           backdropFilter: "blur(7px)",
         };
-      case "outline":
-        return {
-          padding: "0px",
-          border: "2.5px solid rgba(255, 255, 255, 0.8)",
-          backgroundColor: "transparent",
-        };
       case "border":
         return {
-          padding: "0px",
-          border: "3.5px solid rgba(255, 255, 255, 0.88)",
-          backgroundColor: "transparent",
+          padding: "4px",
+          border: "none",
+          backgroundColor: "rgba(255, 255, 255, 0.96)",
         };
       case "border-dark":
         return {
-          padding: "0px",
-          border: "3.5px solid rgba(20, 24, 35, 0.95)",
-          backgroundColor: "transparent",
+          padding: "4px",
+          border: "none",
+          backgroundColor: "rgba(12, 15, 23, 1)",
         };
       case "default":
       default:
@@ -123,11 +117,9 @@ export default function ScreenshotSnippet({settings}: ScreenshotSnippetProps) {
       case "glass-light":
       case "glass-dark":
         return 2;
-      case "outline":
-        return 2.5;
       case "border":
       case "border-dark":
-        return 3.5;
+        return 4;
       case "default":
       default:
         return 0;
@@ -180,10 +172,12 @@ export default function ScreenshotSnippet({settings}: ScreenshotSnippetProps) {
 
       <div
         ref={setPreviewRef}
+        data-export-sharp-border="true"
         className="mx-auto box-border w-full max-w-[615px] rounded-lg"
         style={{background: gradient, padding: "32px"}}
       >
         <div
+          data-export-sharp-border="true"
           className="relative w-full"
           style={{
             ...getFrameStyles(),
@@ -205,10 +199,11 @@ export default function ScreenshotSnippet({settings}: ScreenshotSnippetProps) {
                 data-layout-effect="true"
                 data-layout-preset={settings.layoutPreset}
                 data-shadow-style={settings.shadowStyle}
+                data-frame-style={settings.frameStyle}
                 style={{
                   borderRadius: `${borderRadius}px`,
-                  maxWidth: `calc(100% - ${frameBorderWidthPx * 2}px)`,
-                  maxHeight: `calc(100% - ${frameBorderWidthPx * 2}px)`,
+                  maxWidth: "100%",
+                  maxHeight: "100%",
                   boxSizing: "border-box",
                   transition:
                     "transform 260ms cubic-bezier(0.22, 1, 0.36, 1), filter 260ms cubic-bezier(0.22, 1, 0.36, 1)",
