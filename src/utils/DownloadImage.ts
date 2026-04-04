@@ -107,10 +107,33 @@ function applyExportVisualFixes(root: HTMLElement) {
       el.style.overflow = "hidden";
       el.style.backgroundClip = "padding-box";
 
+      const frameStyle = el.dataset.frameStyle;
+      if (frameStyle === "border-dark") {
+        // Fill the inner box with the border color to avoid thin transparent seams.
+        el.style.backgroundColor = "rgba(12, 15, 23, 1)";
+      } else if (frameStyle === "border") {
+        el.style.backgroundColor = "rgba(255, 255, 255, 0.96)";
+      }
+
       if (el.dataset.shadowStyle === "none") {
         el.style.boxShadow = "none";
       }
     });
+}
+
+function applySharpBorderExportFix(root: HTMLElement) {
+  const targets = [
+    ...(root.matches("[data-export-sharp-border='true']") ? [root] : []),
+    ...root.querySelectorAll<HTMLElement>("[data-export-sharp-border='true']"),
+  ];
+
+  targets.forEach((el) => {
+    el.style.borderRadius = "0px";
+    el.style.borderTopLeftRadius = "0px";
+    el.style.borderTopRightRadius = "0px";
+    el.style.borderBottomLeftRadius = "0px";
+    el.style.borderBottomRightRadius = "0px";
+  });
 }
 
 function createSanitizedClone(node: HTMLElement, applyLayoutFallback = false) {
@@ -229,6 +252,7 @@ export default async function exportAsImage(
       if (useLayoutFallback) {
         const {clone, dispose} = createSanitizedClone(node, true);
         try {
+          applySharpBorderExportFix(clone);
           applyExportVisualFixes(clone);
           const canvas = await captureCanvasWithHtmlToImage(clone);
           const blob = await canvasToBlob(
@@ -246,6 +270,7 @@ export default async function exportAsImage(
 
       const {clone, dispose} = createSanitizedClone(node, false);
       try {
+        applySharpBorderExportFix(clone);
         applyExportVisualFixes(clone);
         const canvas = await captureCanvasWithHtmlToImage(clone);
         const blob = await canvasToBlob(
@@ -263,6 +288,7 @@ export default async function exportAsImage(
       try {
         const {clone, dispose} = createSanitizedClone(node, false);
         try {
+          applySharpBorderExportFix(clone);
           applyExportVisualFixes(clone);
           const canvas = await captureCanvasWithHtmlToImage(clone);
           const blob = await canvasToBlob(
@@ -280,6 +306,7 @@ export default async function exportAsImage(
         try {
           const {clone, dispose} = createSanitizedClone(node, true);
           try {
+            applySharpBorderExportFix(clone);
             applyExportVisualFixes(clone);
             const canvas = await captureCanvasWithHtmlToImage(clone);
             const blob = await canvasToBlob(

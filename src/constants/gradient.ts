@@ -938,6 +938,31 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
     label: "MacBook",
     options: [
       {
+        name: "Mac Studio 1",
+        gradient:
+          "center / cover no-repeat url('/screenshot-bgs/mac-bg-1.jpg')",
+      },
+      {
+        name: "Mac Studio 2",
+        gradient:
+          "center / cover no-repeat url('/screenshot-bgs/mac-bg-2.jpg')",
+      },
+      {
+        name: "Mac Studio 3",
+        gradient:
+          "center / cover no-repeat url('/screenshot-bgs/mac-bg-3.png')",
+      },
+      {
+        name: "Mac Studio 4",
+        gradient:
+          "center / cover no-repeat url('/screenshot-bgs/mac-bg-4.jpg')",
+      },
+      {
+        name: "Mac Studio 5",
+        gradient:
+          "center / cover no-repeat url('/screenshot-bgs/mac-bg-5.jpg')",
+      },
+      {
         name: "Orange Horizon",
         gradient:
           "center / cover no-repeat url('/screenshot-bgs/macos-orange.svg')",
@@ -961,51 +986,6 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
         name: "Violet Night",
         gradient:
           "center / cover no-repeat url('/screenshot-bgs/macos-violet.svg')",
-      },
-      {
-        name: "Sky Light",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-sky.svg')",
-      },
-      {
-        name: "Sunset Fold",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-sunset.svg')",
-      },
-      {
-        name: "Midnight Blue",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-midnight.svg')",
-      },
-      {
-        name: "Glacier",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-glacier.svg')",
-      },
-      {
-        name: "Arctic 2026",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-2026-arctic.svg')",
-      },
-      {
-        name: "Flow 2026",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-2026-flow.svg')",
-      },
-      {
-        name: "Glass 2026",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-2026-glass.svg')",
-      },
-      {
-        name: "Halo 2026",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-2026-halo.svg')",
-      },
-      {
-        name: "Solar 2026",
-        gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-2026-solar.svg')",
       },
       {
         name: "Rose Glow",

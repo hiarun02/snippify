@@ -63,6 +63,7 @@ export default function CodeSnippet() {
   return (
     <div
       ref={setPreviewRef}
+      data-export-sharp-border="true"
       className={`mx-auto box-border w-full max-w-[615px] rounded-lg ${
         isBackgroundHidden ? "!bg-none shadow-none" : ""
       }`}
@@ -72,6 +73,7 @@ export default function CodeSnippet() {
       }}
     >
       <div
+        data-export-sharp-border="true"
         className="relative w-full overflow-hidden rounded-lg shadow-[0_4px_8px_rgba(0,0,0,0.4),0_6px_20px_rgba(0,0,0,0.4)]"
         style={{backgroundColor: editorSurfaceColor}}
       >
