@@ -109,9 +109,9 @@ type PersistedEditorState = {
 const DEFAULT_CODE =
   'function greetUser(name) {\n  const cleanName = name.trim();\n  if (!cleanName) return "Hello, guest!";\n  return `Hello, ${cleanName}!`;\n}\n\ngreetUser("Arun");';
 const DEFAULT_GRADIENT =
-  "center / cover no-repeat url('/screenshot-bgs/macos-gold.svg')";
+  "center / cover no-repeat url('/backgrounds/macos/macos-gold.svg')";
 const DEFAULT_SCREENSHOT_GRADIENT =
-  "center / cover no-repeat url('/screenshot-bgs/mac-bg-4.jpg')";
+  "center / cover no-repeat url('/backgrounds/macos/mac-bg-4.jpg')";
 const STORAGE_KEY = "snippify-editor-state";
 const CODE_SAVE_DEBOUNCE_MS = 250;
 const MAX_PERSISTED_IMAGE_SIZE_BYTES = 4 * 1024 * 1024;

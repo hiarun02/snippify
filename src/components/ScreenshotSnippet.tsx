@@ -1,6 +1,7 @@
 "use client";
 
-import {ChangeEvent} from "react";
+import {useCallback, useEffect} from "react";
+import {useDropzone, type FileRejection} from "react-dropzone";
 import {
   useEditorStore,
   type ScreenshotAspectRatio,
@@ -137,39 +138,92 @@ export default function ScreenshotSnippet({settings}: ScreenshotSnippetProps) {
   const frameBorderWidthPx = getFrameBorderWidthPx();
   const innerImageRadiusPx = Math.max(borderRadius - frameBorderWidthPx, 0);
 
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) {
-      return;
-    }
+  const processUploadedFile = useCallback(
+    (file: File | null | undefined) => {
+      if (!file) {
+        return;
+      }
 
-    // Keep persisted payloads within practical localStorage bounds.
-    if (file.size > 4 * 1024 * 1024) {
+      if (!file.type.startsWith("image/")) {
+        window.alert("Please upload an image file.");
+        return;
+      }
+
+      // Keep persisted payloads within practical localStorage bounds.
+      if (file.size > 4 * 1024 * 1024) {
+        window.alert(
+          "Please upload an image under 4MB for reliable persistence.",
+        );
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64 = reader.result as string;
+        setUploadedImage(base64);
+      };
+      reader.readAsDataURL(file);
+    },
+    [setUploadedImage],
+  );
+
+  const handleDropAccepted = useCallback(
+    (acceptedFiles: File[]) => {
+      processUploadedFile(acceptedFiles[0]);
+    },
+    [processUploadedFile],
+  );
+
+  const handleDropRejected = useCallback((fileRejections: FileRejection[]) => {
+    const firstErrorCode = fileRejections[0]?.errors[0]?.code;
+
+    if (firstErrorCode === "file-too-large") {
       window.alert(
         "Please upload an image under 4MB for reliable persistence.",
       );
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      const base64 = reader.result as string;
-      setUploadedImage(base64);
+    if (firstErrorCode === "file-invalid-type") {
+      window.alert("Please upload an image file.");
+      return;
+    }
+
+    window.alert("Unable to upload this file. Please try a different image.");
+  }, []);
+
+  const {getRootProps, getInputProps, isDragActive, open} = useDropzone({
+    accept: {
+      "image/*": [],
+    },
+    maxFiles: 1,
+    multiple: false,
+    maxSize: 4 * 1024 * 1024,
+    noClick: true,
+    noKeyboard: true,
+    onDropAccepted: handleDropAccepted,
+    onDropRejected: handleDropRejected,
+  });
+
+  useEffect(() => {
+    const handlePaste = (event: ClipboardEvent) => {
+      const pastedFile = event.clipboardData?.files?.[0];
+      if (!pastedFile) {
+        return;
+      }
+
+      event.preventDefault();
+      processUploadedFile(pastedFile);
     };
-    reader.readAsDataURL(file);
-  };
+
+    window.addEventListener("paste", handlePaste);
+    return () => {
+      window.removeEventListener("paste", handlePaste);
+    };
+  }, [processUploadedFile]);
 
   return (
     <section className="flex w-full flex-col items-center gap-5 px-1 pb-6 sm:gap-6 sm:pb-8">
-      <input
-        id="screenshot-file"
-        type="file"
-        accept="image/*"
-        aria-label="Upload screenshot"
-        onChange={handleFileChange}
-        className="hidden"
-      />
-
       <div
         ref={setPreviewRef}
         data-export-sharp-border="true"
@@ -177,14 +231,18 @@ export default function ScreenshotSnippet({settings}: ScreenshotSnippetProps) {
         style={{background: gradient, padding: "32px"}}
       >
         <div
-          data-export-sharp-border="true"
-          className="relative w-full"
+          {...getRootProps({
+            "data-export-sharp-border": "true",
+            className: "relative w-full",
+          })}
           style={{
             ...getFrameStyles(),
             aspectRatio: aspectRatioValue,
             overflow: imageSrc ? "visible" : "hidden",
           }}
         >
+          <input {...getInputProps({"aria-label": "Upload screenshot"})} />
+
           <div
             className="absolute flex items-center justify-center"
             style={{
@@ -248,27 +306,42 @@ export default function ScreenshotSnippet({settings}: ScreenshotSnippetProps) {
               </div>
             ) : (
               <div
-                className="relative w-full max-h-full overflow-hidden"
+                className="relative flex w-full max-h-full items-center justify-center overflow-hidden"
                 style={{
                   aspectRatio: ASPECT_RATIO_VALUE_MAP["16:9"],
                   borderRadius: `${borderRadius}px`,
-                  backgroundImage: "url('/editor-bg.svg')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
                 }}
-              />
+              >
+                <div
+                  data-export-ignore="true"
+                  className={`relative z-10 flex w-[84%] max-w-[520px] flex-col items-center rounded-3xl border px-5 py-8 text-center text-white shadow-[0_10px_40px_rgba(0,0,0,0.25)] transition-all duration-200 sm:py-10 ${
+                    isDragActive
+                      ? "border-cyan-200/70 bg-white/18 backdrop-blur-xl"
+                      : "border-white/20 bg-black/35 backdrop-blur-xl"
+                  }`}
+                >
+                  <span className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/35 bg-white/10 text-4xl leading-none text-white/90">
+                    +
+                  </span>
+
+                  <p className="text-lg font-semibold tracking-tight text-white/95">
+                    Drag and drop image
+                  </p>
+                  <p className="mt-1 text-sm text-white/80">
+                    Click to browse or press Ctrl+V to paste
+                  </p>
+
+                  <button
+                    type="button"
+                    onClick={open}
+                    className="mt-5 inline-flex rounded-xl border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white/95 transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
+                  >
+                    Choose file
+                  </button>
+                </div>
+              </div>
             )}
           </div>
-
-          {!imageSrc ? (
-            <label
-              htmlFor="screenshot-file"
-              data-export-ignore="true"
-              className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-lg border border-white/20 bg-black/45 px-4 py-2 text-sm text-white backdrop-blur-sm"
-            >
-              Choose file
-            </label>
-          ) : null}
         </div>
       </div>
     </section>

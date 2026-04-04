@@ -637,52 +637,52 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
       {
         name: "Aurora",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/abstract-aurora.svg')",
+          "center / cover no-repeat url('/backgrounds/abstract/abstract-aurora.svg')",
       },
       {
         name: "Dune",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/abstract-dune.svg')",
+          "center / cover no-repeat url('/backgrounds/abstract/abstract-dune.svg')",
       },
       {
         name: "Lagoon",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/abstract-lagoon.svg')",
+          "center / cover no-repeat url('/backgrounds/abstract/abstract-lagoon.svg')",
       },
       {
         name: "Nebula",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/abstract-nebula.svg')",
+          "center / cover no-repeat url('/backgrounds/abstract/abstract-nebula.svg')",
       },
       {
         name: "Candy Waves",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/abstract-candy.svg')",
+          "center / cover no-repeat url('/backgrounds/abstract/abstract-candy.svg')",
       },
       {
         name: "Prism Flow",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/abstract-prism.svg')",
+          "center / cover no-repeat url('/backgrounds/abstract/abstract-prism.svg')",
       },
       {
         name: "Ember Field",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/abstract-ember.svg')",
+          "center / cover no-repeat url('/backgrounds/abstract/abstract-ember.svg')",
       },
       {
         name: "Ice Flow",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/abstract-iceflow.svg')",
+          "center / cover no-repeat url('/backgrounds/abstract/abstract-iceflow.svg')",
       },
       {
         name: "Mirage",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/abstract-mirage.svg')",
+          "center / cover no-repeat url('/backgrounds/abstract/abstract-mirage.svg')",
       },
       {
         name: "Orbit",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/abstract-orbit.svg')",
+          "center / cover no-repeat url('/backgrounds/abstract/abstract-orbit.svg')",
       },
     ],
   },
@@ -691,59 +691,9 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
     label: "Magic Gradients",
     options: [
       {
-        name: "Amber Halo",
-        gradient:
-          "radial-gradient(circle at 50% 50%, rgba(255, 171, 52, 0.75) 0%, rgba(255, 171, 52, 0.08) 28%, rgba(29, 30, 34, 1) 58%)",
-      },
-      {
-        name: "Lemon Glow",
-        gradient:
-          "radial-gradient(circle at 50% 50%, rgba(224, 227, 143, 0.7) 0%, rgba(224, 227, 143, 0.09) 30%, rgba(31, 32, 36, 1) 60%)",
-      },
-      {
-        name: "Neon Mint",
-        gradient:
-          "radial-gradient(circle at 50% 50%, rgba(0, 255, 195, 0.9) 0%, rgba(0, 255, 195, 0.15) 30%, rgba(23, 24, 28, 1) 58%)",
-      },
-      {
-        name: "Silver Fade",
-        gradient:
-          "linear-gradient(135deg, rgba(226, 228, 232, 1) 0%, rgba(168, 172, 182, 1) 48%, rgba(92, 96, 106, 1) 100%)",
-      },
-      {
-        name: "Olive Smoke",
-        gradient:
-          "radial-gradient(circle at 50% 50%, rgba(189, 193, 120, 0.72) 0%, rgba(189, 193, 120, 0.1) 32%, rgba(30, 31, 35, 1) 62%)",
-      },
-      {
-        name: "Golden Orb",
-        gradient:
-          "radial-gradient(circle at 50% 50%, rgba(255, 182, 43, 0.9) 0%, rgba(255, 182, 43, 0.14) 28%, rgba(25, 26, 30, 1) 58%)",
-      },
-      {
-        name: "Emerald Dot",
-        gradient:
-          "radial-gradient(circle at 50% 50%, rgba(8, 214, 165, 0.85) 0%, rgba(8, 214, 165, 0.14) 30%, rgba(25, 26, 30, 1) 60%)",
-      },
-      {
         name: "Tangerine Ring",
         gradient:
           "radial-gradient(circle at 50% 50%, rgba(255, 88, 14, 0) 24%, rgba(255, 88, 14, 0.95) 36%, rgba(255, 88, 14, 0.12) 54%, rgba(28, 29, 33, 1) 62%)",
-      },
-      {
-        name: "Bronze Dawn",
-        gradient:
-          "linear-gradient(135deg, rgba(140, 88, 18, 1) 0%, rgba(82, 50, 8, 1) 45%, rgba(37, 29, 17, 1) 100%)",
-      },
-      {
-        name: "Solar Gold",
-        gradient:
-          "radial-gradient(circle at 50% 50%, rgba(255, 193, 33, 0.9) 0%, rgba(255, 193, 33, 0.15) 34%, rgba(29, 30, 34, 1) 62%)",
-      },
-      {
-        name: "Mono Halo",
-        gradient:
-          "radial-gradient(circle at 50% 50%, rgba(214, 216, 222, 0.88) 0%, rgba(214, 216, 222, 0.14) 31%, rgba(30, 31, 35, 1) 61%)",
       },
       {
         name: "Mint Pulse",
@@ -761,16 +711,6 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
           "radial-gradient(circle at 50% 50%, rgba(107, 214, 255, 0.82) 0%, rgba(107, 214, 255, 0.14) 32%, rgba(30, 31, 36, 1) 62%)",
       },
       {
-        name: "Slate Glow",
-        gradient:
-          "radial-gradient(circle at 50% 50%, rgba(128, 132, 154, 0.7) 0%, rgba(128, 132, 154, 0.12) 33%, rgba(33, 34, 39, 1) 62%)",
-      },
-      {
-        name: "Sky Orb",
-        gradient:
-          "radial-gradient(circle at 50% 50%, rgba(105, 194, 235, 0.8) 0%, rgba(105, 194, 235, 0.14) 32%, rgba(28, 29, 33, 1) 62%)",
-      },
-      {
         name: "Amber Ring",
         gradient:
           "radial-gradient(circle at 50% 50%, rgba(236, 165, 54, 0) 22%, rgba(236, 165, 54, 0.9) 36%, rgba(236, 165, 54, 0.14) 54%, rgba(30, 31, 35, 1) 64%)",
@@ -780,112 +720,7 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
         gradient:
           "radial-gradient(circle at 50% 50%, rgba(98, 210, 255, 0.82) 0%, rgba(98, 210, 255, 0.15) 32%, rgba(15, 16, 20, 1) 64%)",
       },
-      {
-        name: "Chrome Mist",
-        gradient:
-          "radial-gradient(circle at 50% 50%, rgba(219, 221, 227, 0.88) 0%, rgba(219, 221, 227, 0.12) 33%, rgba(54, 56, 63, 1) 64%)",
-      },
-      {
-        name: "Ivory Soft",
-        gradient:
-          "linear-gradient(135deg, rgba(244, 246, 249, 1) 0%, rgba(208, 212, 220, 1) 55%, rgba(145, 150, 162, 1) 100%)",
-      },
-    ],
-  },
-  {
-    id: "raycast",
-    label: "Raycast",
-    options: [
-      {
-        name: "Raycast Aurora",
-        gradient:
-          "radial-gradient(circle at 20% 18%, rgba(255, 211, 71, 0.95) 0%, rgba(255, 128, 82, 0.88) 26%, rgba(168, 118, 255, 0.45) 58%, rgba(24, 25, 30, 1) 100%)",
-      },
-      {
-        name: "Raycast Bloom",
-        gradient:
-          "radial-gradient(ellipse at 45% 40%, rgba(255, 122, 171, 0.95) 0%, rgba(255, 122, 171, 0.2) 24%, rgba(20, 22, 28, 1) 62%), radial-gradient(circle at 70% 45%, rgba(255, 255, 255, 0.2) 0%, rgba(20, 22, 28, 0) 30%)",
-      },
-      {
-        name: "Raycast Halo",
-        gradient:
-          "radial-gradient(ellipse at 50% 40%, rgba(190, 117, 255, 0.95) 0%, rgba(143, 87, 255, 0.28) 30%, rgba(16, 17, 23, 1) 65%)",
-      },
-      {
-        name: "Raycast Frost",
-        gradient:
-          "linear-gradient(155deg, rgba(232, 242, 235, 1) 0%, rgba(217, 231, 235, 1) 35%, rgba(247, 161, 184, 0.95) 100%)",
-      },
-      {
-        name: "Raycast Spectrum",
-        gradient:
-          "radial-gradient(ellipse at 30% 24%, rgba(0, 180, 255, 0.95) 0%, rgba(80, 108, 255, 0.52) 36%, rgba(15, 16, 21, 1) 68%), radial-gradient(ellipse at 65% 70%, rgba(255, 70, 160, 0.65) 0%, rgba(15, 16, 21, 0) 40%)",
-      },
-      {
-        name: "Raycast Cobalt",
-        gradient:
-          "radial-gradient(ellipse at 40% 30%, rgba(59, 117, 255, 0.95) 0%, rgba(74, 42, 255, 0.6) 34%, rgba(9, 10, 15, 1) 70%), repeating-linear-gradient(42deg, rgba(255, 255, 255, 0.04) 0 8px, rgba(255, 255, 255, 0) 8px 18px)",
-      },
-      {
-        name: "Raycast Sky",
-        gradient:
-          "linear-gradient(150deg, rgba(184, 242, 255, 1) 0%, rgba(149, 205, 246, 1) 48%, rgba(172, 232, 255, 0.95) 100%)",
-      },
-      {
-        name: "Raycast Velvet",
-        gradient:
-          "linear-gradient(145deg, rgba(74, 55, 182, 1) 0%, rgba(99, 66, 205, 0.95) 45%, rgba(255, 119, 148, 0.95) 100%)",
-      },
-      {
-        name: "Raycast Motion",
-        gradient:
-          "repeating-linear-gradient(145deg, rgba(255, 90, 88, 0.78) 0 8px, rgba(10, 12, 18, 1) 8px 18px), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.25) 0%, rgba(10, 12, 18, 0) 30%)",
-      },
-      {
-        name: "Raycast Shift",
-        gradient:
-          "repeating-linear-gradient(145deg, rgba(255, 99, 90, 0.78) 0 8px, rgba(19, 22, 28, 1) 8px 18px), radial-gradient(circle at 25% 20%, rgba(120, 240, 255, 0.26) 0%, rgba(19, 22, 28, 0) 35%)",
-      },
-      {
-        name: "Raycast Breeze",
-        gradient:
-          "linear-gradient(140deg, rgba(70, 94, 116, 1) 0%, rgba(57, 77, 98, 1) 30%, rgba(90, 198, 212, 0.8) 100%), repeating-linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0 7px, rgba(255, 255, 255, 0) 7px 16px)",
-      },
-      {
-        name: "Raycast Cyan Beam",
-        gradient:
-          "linear-gradient(145deg, rgba(84, 195, 210, 1) 0%, rgba(61, 148, 170, 1) 45%, rgba(28, 41, 59, 1) 100%), repeating-linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0 8px, rgba(255, 255, 255, 0) 8px 18px)",
-      },
-      {
-        name: "Raycast Mono Grid",
-        gradient:
-          "repeating-linear-gradient(145deg, rgba(220, 220, 220, 0.45) 0 8px, rgba(14, 16, 21, 1) 8px 18px)",
-      },
-      {
-        name: "Raycast Red Grid",
-        gradient:
-          "repeating-linear-gradient(145deg, rgba(255, 36, 58, 0.88) 0 8px, rgba(9, 11, 16, 1) 8px 18px)",
-      },
-      {
-        name: "Raycast Blue Mist",
-        gradient:
-          "radial-gradient(circle at 22% 26%, rgba(83, 140, 255, 0.95) 0%, rgba(109, 232, 255, 0.35) 33%, rgba(100, 94, 246, 0.8) 70%, rgba(21, 22, 28, 1) 100%)",
-      },
-      {
-        name: "Raycast Orchid",
-        gradient:
-          "linear-gradient(135deg, rgba(119, 155, 255, 1) 0%, rgba(157, 92, 246, 1) 52%, rgba(234, 111, 210, 1) 100%)",
-      },
-      {
-        name: "Raycast Prism",
-        gradient:
-          "radial-gradient(circle at 28% 35%, rgba(80, 88, 255, 0.92) 0%, rgba(179, 107, 255, 0.7) 44%, rgba(248, 122, 184, 0.72) 74%, rgba(23, 24, 30, 1) 100%)",
-      },
-      {
-        name: "Raycast Fog",
-        gradient:
-          "linear-gradient(150deg, rgba(187, 190, 197, 1) 0%, rgba(152, 155, 163, 1) 50%, rgba(201, 203, 208, 1) 100%)",
-      },
+
       {
         name: "Raycast Eclipse",
         gradient:
@@ -897,6 +732,69 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
           "radial-gradient(ellipse at 53% 48%, rgba(255, 88, 126, 0) 35%, rgba(255, 88, 126, 0.78) 44%, rgba(255, 88, 126, 0.18) 51%, rgba(23, 25, 31, 1) 68%)",
       },
       {
+        name: "Raycast Bloom",
+        gradient:
+          "radial-gradient(ellipse at 45% 40%, rgba(255, 122, 171, 0.95) 0%, rgba(255, 122, 171, 0.2) 24%, rgba(20, 22, 28, 1) 62%), radial-gradient(circle at 70% 45%, rgba(255, 255, 255, 0.2) 0%, rgba(20, 22, 28, 0) 30%)",
+      },
+      {
+        name: "Raycast Halo",
+        gradient:
+          "radial-gradient(ellipse at 50% 40%, rgba(190, 117, 255, 0.95) 0%, rgba(143, 87, 255, 0.28) 30%, rgba(16, 17, 23, 1) 65%)",
+      },
+    ],
+  },
+  {
+    id: "raycast",
+    label: "Raycast",
+    options: [
+      {
+        name: "Chromatic Dark 1",
+        gradient:
+          "center / cover no-repeat url('/backgrounds/raycast-gradient/chromatic_dark_1.webp')",
+      },
+      {
+        name: "Chromatic Dark 2",
+        gradient:
+          "center / cover no-repeat url('/backgrounds/raycast-gradient/chromatic_dark_2.webp')",
+      },
+      {
+        name: "Chromatic Light 1",
+        gradient:
+          "center / cover no-repeat url('/backgrounds/raycast-gradient/chromatic_light_1.webp')",
+      },
+      {
+        name: "Chromatic Light 2",
+        gradient:
+          "center / cover no-repeat url('/backgrounds/raycast-gradient/chromatic_light_2.webp')",
+      },
+      {
+        name: "Mono Dark Distortion 1",
+        gradient:
+          "center / cover no-repeat url('/backgrounds/raycast-gradient/mono_dark_distortion_1.webp')",
+      },
+      {
+        name: "Mono Dark Distortion 2",
+        gradient:
+          "center / cover no-repeat url('/backgrounds/raycast-gradient/mono_dark_distortion_2.webp')",
+      },
+      {
+        name: "Red Distortion 4",
+        gradient:
+          "center / cover no-repeat url('/backgrounds/raycast-gradient/red_distortion_4.webp')",
+      },
+      {
+        name: "Raycast Motion",
+        gradient:
+          "repeating-linear-gradient(145deg, rgba(255, 90, 88, 0.78) 0 8px, rgba(10, 12, 18, 1) 8px 18px), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.25) 0%, rgba(10, 12, 18, 0) 30%)",
+      },
+
+      {
+        name: "Raycast Mono Grid",
+        gradient:
+          "repeating-linear-gradient(145deg, rgba(220, 220, 220, 0.45) 0 8px, rgba(14, 16, 21, 1) 8px 18px)",
+      },
+
+      {
         name: "Raycast Carbon",
         gradient:
           "repeating-linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0 7px, rgba(10, 12, 18, 1) 7px 16px)",
@@ -905,31 +803,6 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
         name: "Raycast Drift",
         gradient:
           "repeating-linear-gradient(145deg, rgba(30, 33, 39, 0.4) 0 8px, rgba(221, 224, 228, 0.95) 8px 18px)",
-      },
-      {
-        name: "Raycast Noir",
-        gradient:
-          "repeating-linear-gradient(145deg, rgba(255, 255, 255, 0.15) 0 6px, rgba(9, 11, 16, 1) 6px 15px), radial-gradient(circle at 80% 22%, rgba(255, 255, 255, 0.2) 0%, rgba(9, 11, 16, 0) 35%)",
-      },
-      {
-        name: "Raycast Violet Smoke",
-        gradient:
-          "radial-gradient(circle at 66% 42%, rgba(103, 46, 190, 0.92) 0%, rgba(206, 84, 162, 0.58) 42%, rgba(17, 18, 24, 1) 80%)",
-      },
-      {
-        name: "Raycast Crimson Wave",
-        gradient:
-          "repeating-linear-gradient(145deg, rgba(255, 46, 72, 0.9) 0 8px, rgba(10, 12, 18, 1) 8px 18px), radial-gradient(circle at 24% 22%, rgba(157, 120, 255, 0.28) 0%, rgba(10, 12, 18, 0) 35%)",
-      },
-      {
-        name: "Raycast Punch",
-        gradient:
-          "repeating-linear-gradient(145deg, rgba(255, 63, 89, 0.92) 0 8px, rgba(7, 10, 14, 1) 8px 17px), radial-gradient(circle at 70% 20%, rgba(255, 193, 89, 0.3) 0%, rgba(7, 10, 14, 0) 38%)",
-      },
-      {
-        name: "Raycast Magenta",
-        gradient:
-          "linear-gradient(135deg, rgba(185, 60, 186, 1) 0%, rgba(145, 76, 208, 1) 52%, rgba(255, 112, 185, 1) 100%)",
       },
     ],
   },
@@ -940,57 +813,67 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
       {
         name: "Mac Studio 1",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/mac-bg-1.jpg')",
+          "center / cover no-repeat url('/backgrounds/macos/mac-bg-1.jpg')",
       },
       {
         name: "Mac Studio 2",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/mac-bg-2.jpg')",
+          "center / cover no-repeat url('/backgrounds/macos/mac-bg-2.jpg')",
       },
       {
         name: "Mac Studio 3",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/mac-bg-3.png')",
+          "center / cover no-repeat url('/backgrounds/macos/mac-bg-3.png')",
       },
       {
         name: "Mac Studio 4",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/mac-bg-4.jpg')",
+          "center / cover no-repeat url('/backgrounds/macos/mac-bg-4.jpg')",
       },
       {
         name: "Mac Studio 5",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/mac-bg-5.jpg')",
+          "center / cover no-repeat url('/backgrounds/macos/mac-bg-5.jpg')",
+      },
+      {
+        name: "Mac Studio 6",
+        gradient:
+          "center / cover no-repeat url('/backgrounds/macos/mac-bg-6.jpg')",
+      },
+      {
+        name: "Mac Studio 7",
+        gradient:
+          "center / cover no-repeat url('/backgrounds/macos/mac-bg-7.jpg')",
       },
       {
         name: "Orange Horizon",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-orange.svg')",
+          "center / cover no-repeat url('/backgrounds/macos/macos-orange.svg')",
       },
       {
         name: "Blue Coast",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-blue.svg')",
+          "center / cover no-repeat url('/backgrounds/macos/macos-blue.svg')",
       },
       {
         name: "Golden Dusk",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-gold.svg')",
+          "center / cover no-repeat url('/backgrounds/macos/macos-gold.svg')",
       },
       {
         name: "Forest Light",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-forest.svg')",
+          "center / cover no-repeat url('/backgrounds/macos/macos-forest.svg')",
       },
       {
         name: "Violet Night",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-violet.svg')",
+          "center / cover no-repeat url('/backgrounds/macos/macos-violet.svg')",
       },
       {
         name: "Rose Glow",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/macos-rose.svg')",
+          "center / cover no-repeat url('/backgrounds/macos/macos-rose.svg')",
       },
     ],
   },
@@ -999,24 +882,24 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
     label: "Windows",
     options: [
       {
-        name: "Windows Light",
+        name: "Windows Studio 1",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/windows-light.svg')",
+          "center / cover no-repeat url('/backgrounds/windows/windows-bg-1.png')",
       },
       {
-        name: "Windows Blue",
+        name: "Windows Studio 2",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/windows-blue.svg')",
+          "center / cover no-repeat url('/backgrounds/windows/windows-bg-2.png')",
       },
       {
-        name: "Windows Purple",
+        name: "Windows Studio 3",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/windows-purple.svg')",
+          "center / cover no-repeat url('/backgrounds/windows/windows-bg-3.png')",
       },
       {
-        name: "Windows Teal",
+        name: "Windows Studio 4",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/windows-teal.svg')",
+          "center / cover no-repeat url('/backgrounds/windows/windows-bg-4.jpg')",
       },
     ],
   },
@@ -1027,22 +910,22 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
       {
         name: "Ubuntu",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/linux-ubuntu.svg')",
+          "center / cover no-repeat url('/backgrounds/linux/linux-ubuntu.svg')",
       },
       {
         name: "Fedora",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/linux-fedora.svg')",
+          "center / cover no-repeat url('/backgrounds/linux/linux-fedora.svg')",
       },
       {
         name: "Mint",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/linux-mint.svg')",
+          "center / cover no-repeat url('/backgrounds/linux/linux-mint.svg')",
       },
       {
         name: "Arch",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/linux-arch.svg')",
+          "center / cover no-repeat url('/backgrounds/linux/linux-arch.svg')",
       },
     ],
   },
@@ -1063,27 +946,27 @@ export const ScreenshotSnippetBgCategories: ScreenshotBgCategory[] = [
       {
         name: "Sun",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/radiant-sun.svg')",
+          "center / cover no-repeat url('/backgrounds/radiant/radiant-sun.svg')",
       },
       {
         name: "Rose",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/radiant-rose.svg')",
+          "center / cover no-repeat url('/backgrounds/radiant/radiant-rose.svg')",
       },
       {
         name: "Cyan",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/radiant-cyan.svg')",
+          "center / cover no-repeat url('/backgrounds/radiant/radiant-cyan.svg')",
       },
       {
         name: "Indigo",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/radiant-indigo.svg')",
+          "center / cover no-repeat url('/backgrounds/radiant/radiant-indigo.svg')",
       },
       {
         name: "Coral",
         gradient:
-          "center / cover no-repeat url('/screenshot-bgs/radiant-coral.svg')",
+          "center / cover no-repeat url('/backgrounds/radiant/radiant-coral.svg')",
       },
     ],
   },
